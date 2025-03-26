@@ -1,0 +1,145 @@
+/* Основные стили для технофентези */
+:root {
+    --quantum-primary: #0ff0fc;
+    --quantum-secondary: #7b2dff;
+    --quantum-dark: #0a0a1a;
+    --quantum-light: #e0e0e0;
+    --quantum-accent: #ff2d7b;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--quantum-dark);
+    color: var(--quantum-light);
+    overflow-x: hidden;
+    position: relative;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Навигационная панель */
+.quantum-nav {
+    background-color: rgba(10, 10, 26, 0.9);
+    border-bottom: 1px solid var(--quantum-primary);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+.navbar-brand {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.quantum-logo-icon {
+    color: var(--quantum-primary);
+    margin-right: 10px;
+}
+
+.nav-link {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 400;
+    margin: 0 10px;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--quantum-primary);
+    transition: width 0.3s;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Глючный эффект */
+.glitch-effect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        rgba(123, 45, 255, 0.05),
+        rgba(0, 255, 255, 0.05)
+    );
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* Свечение текста */
+.glow-text {
+    text-shadow: 0 0 5px var(--quantum-primary), 0 0 10px var(--quantum-primary);
+}
+
+/* Основное содержимое */
+.quantum-main {
+    min-height: 70vh;
+    padding-top: 20px;
+}
+
+/* Футер */
+.quantum-footer {
+    background-color: rgba(10, 10, 26, 0.9);
+    border-top: 1px solid var(--quantum-secondary);
+    box-shadow: 0 0 15px rgba(123, 45, 255, 0.3);
+}
+
+.quantum-hr {
+    border-color: var(--quantum-primary);
+    margin: 20px auto;
+    opacity: 0.3;
+}
+
+.social-icon {
+    color: var(--quantum-light);
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: all 0.3s;
+}
+
+.social-icon:hover {
+    color: var(--quantum-primary);
+    text-shadow: 0 0 10px var(--quantum-primary);
+    transform: scale(1.2);
+}
+
+/* Кнопки в стиле технофентези */
+.btn-quantum {
+    font-family: 'Orbitron', sans-serif;
+    background: linear-gradient(45deg, var(--quantum-primary), var(--quantum-secondary));
+    border: none;
+    color: var(--quantum-dark);
+    font-weight: bold;
+    border-radius: 0;
+    padding: 10px 25px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+.btn-quantum:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.8);
+    color: var(--quantum-dark);
+}
+
+/* Анимации */
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}

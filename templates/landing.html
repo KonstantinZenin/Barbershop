@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Razor Barbershop - Технофентези стиль</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/quantum_style.css' %}">
+    <!-- Font Awesome для иконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Технофентези шрифт (можно заменить на свой) -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body class="tech-fantasy-bg">
+    <!-- Глючный эффект для технофентези стиля -->
+    <div class="glitch-effect"></div>
+    
+    <!-- Навигационная панель -->
+    <nav class="navbar navbar-expand-lg navbar-dark quantum-nav">
+        <div class="container">
+            <a class="navbar-brand glow-text" href="/">
+                <i class="fas fa-atom quantum-logo-icon"></i> Quantum Razor
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarQuantum">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarQuantum">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Главная</a>
+                    </li>
+                    <!-- Блок для ссылки на мастеров (будет заполнено позже) -->
+                    {% comment %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'masters' %}">Наши мастера</a>
+                    </li>
+                    {% endcomment %}
+                    
+                    <!-- Блок для ссылки на услуги (будет заполнено позже) -->
+                    {% comment %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'services' %}">Услуги</a>
+                    </li>
+                    {% endcomment %}
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacts">Контакты</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Основное содержимое -->
+    <main class="quantum-main">
+        <div class="container py-5">
+            {% block content %}
+            <!-- Здесь будет основное содержимое страниц -->
+            {% endblock %}
+            
+            <!-- Блок для мастеров (будет заполнено позже) -->
+            {% comment %}
+            {% block masters %}
+            <!-- Сюда вставится блок с мастерами -->
+            {% endblock %}
+            {% endcomment %}
+            
+            <!-- Блок для услуг (будет заполнено позже) -->
+            {% comment %}
+            {% block services %}
+            <!-- Сюда вставится блок с услугами -->
+            {% endblock %}
+            {% endcomment %}
+        </div>
+    </main>
+
+    <!-- Футер -->
+    <footer class="quantum-footer text-center py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5 class="glow-text">Quantum Razor</h5>
+                    <p>Барбершоп нового поколения</p>
+                </div>
+                <div class="col-md-4" id="contacts">
+                    <h5 class="glow-text">Контакты</h5>
+                    <p><i class="fas fa-map-marker-alt"></i> Техноулица, 42</p>
+                    <p><i class="fas fa-phone"></i> +7 (XXX) XXX-XX-XX</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="glow-text">Соцсети</h5>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-vk"></i></a>
+                </div>
+            </div>
+            <hr class="quantum-hr">
+            <p class="mb-0">&copy; 2023 Quantum Razor Barbershop. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS + Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="{% static 'js/quantum_effects.js' %}"></script>
+</body>
+</html>

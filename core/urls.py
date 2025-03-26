@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.urls import path
+import core.views as views
 
 urlpatterns = [
     path('thanks/', views.thanks, name='thanks'),
