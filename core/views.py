@@ -12,12 +12,12 @@ def landing(request):
         "title_services": "Наши услуги",
         "services": services,
     }
-    return render(request, "landing.html", context)
+    return render(request, "core/landing.html", context)
 
 
 def thanks(request):
-    return HttpResponse("Thanks for your order!")
-    # return render(request, "../templates/thanks.html")
+    context = {}
+    return render(request, "core/thanks.html", context)
 
 
 def orders_list(request):

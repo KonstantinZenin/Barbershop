@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+<!-- Блок для мастеров и услуг -->
+{% block content %}
+<div class="row">
+    <!-- Колонка мастеров -->
+    <div class="col-md-6" id="masters">
+        <h2 class="glow-text">Наши мастера</h2>
+        <ul class="quantum-list">
+            {% for master in masters %}
+            <li>{{ master.id }}. {{ master.name }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    
+    <!-- Колонка услуг -->
+    <div class="col-md-6" id="services">
+        <h2 class="glow-text">Наши услуги</h2>
+        <ul class="quantum-list">
+            {% for service in services %}
+            <li>{{ service }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock content %}
