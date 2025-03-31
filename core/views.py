@@ -6,7 +6,13 @@ from .data import *
 
 def landing(request):
     # return HttpResponse("Hello, world!")
-    return render(request, "landing.html")
+    context = {
+        "title_masters": "Наши мастера",
+        "masters": masters,
+        "title_services": "Наши услуги",
+        "services": services,
+    }
+    return render(request, "landing.html", context)
 
 
 def thanks(request):

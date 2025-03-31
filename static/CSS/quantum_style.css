@@ -86,6 +86,22 @@ h1, h2, h3, h4, h5, h6 {
     padding-top: 20px;
 }
 
+/* Стили для списков */
+.quantum-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.quantum-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+    font-family: 'Orbitron', sans-serif;
+}
+
+.quantum-list li:last-child {
+    border-bottom: none;
+}
+
 /* Футер */
 .quantum-footer {
     background-color: rgba(10, 10, 26, 0.9);
@@ -112,34 +128,13 @@ h1, h2, h3, h4, h5, h6 {
     transform: scale(1.2);
 }
 
-/* Кнопки в стиле технофентези */
-.btn-quantum {
-    font-family: 'Orbitron', sans-serif;
-    background: linear-gradient(45deg, var(--quantum-primary), var(--quantum-secondary));
-    border: none;
-    color: var(--quantum-dark);
-    font-weight: bold;
-    border-radius: 0;
-    padding: 10px 25px;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s;
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
-}
-
-.btn-quantum:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 25px rgba(0, 255, 255, 0.8);
-    color: var(--quantum-dark);
-}
-
-/* Анимации */
-@keyframes pulse {
-    0% { opacity: 0.6; }
-    50% { opacity: 1; }
-    100% { opacity: 0.6; }
-}
-
-.pulse {
-    animation: pulse 2s infinite;
+/* Адаптивность */
+@media (max-width: 768px) {
+    .quantum-nav {
+        padding: 10px 0;
+    }
+    
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
 }

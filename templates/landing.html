@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{% static 'css/quantum_style.css' %}">
     <!-- Font Awesome для иконок -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Технофентези шрифт (можно заменить на свой) -->
+    <!-- Технофентези шрифт -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body class="tech-fantasy-bg">
@@ -32,20 +32,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/">Главная</a>
                     </li>
-                    <!-- Блок для ссылки на мастеров (будет заполнено позже) -->
-                    {% comment %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'masters' %}">Наши мастера</a>
+                        <a class="nav-link" href="#masters">Наши мастера</a>
                     </li>
-                    {% endcomment %}
-                    
-                    <!-- Блок для ссылки на услуги (будет заполнено позже) -->
-                    {% comment %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'services' %}">Услуги</a>
+                        <a class="nav-link" href="#services">Услуги</a>
                     </li>
-                    {% endcomment %}
-                    
                     <li class="nav-item">
                         <a class="nav-link" href="#contacts">Контакты</a>
                     </li>
@@ -56,24 +48,29 @@
 
     <!-- Основное содержимое -->
     <main class="quantum-main">
-        <div class="container py-5">
-            {% block content %}
-            <!-- Здесь будет основное содержимое страниц -->
-            {% endblock %}
-            
-            <!-- Блок для мастеров (будет заполнено позже) -->
-            {% comment %}
-            {% block masters %}
-            <!-- Сюда вставится блок с мастерами -->
-            {% endblock %}
-            {% endcomment %}
-            
-            <!-- Блок для услуг (будет заполнено позже) -->
-            {% comment %}
-            {% block services %}
-            <!-- Сюда вставится блок с услугами -->
-            {% endblock %}
-            {% endcomment %}
+        <div class="container py-5"> 
+            <!-- Блок для мастеров и услуг -->
+            <div class="row">
+                <!-- Колонка мастеров -->
+                <div class="col-md-6" id="masters">
+                    <h2 class="glow-text">Наши мастера</h2>
+                    <ul class="quantum-list">
+                        {% for master in masters %}
+                        <li>{{ master.id }}. {{ master.name }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                
+                <!-- Колонка услуг -->
+                <div class="col-md-6" id="services">
+                    <h2 class="glow-text">Наши услуги</h2>
+                    <ul class="quantum-list">
+                        {% for service in services %}
+                        <li>{{ service }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
         </div>
     </main>
 
