@@ -27,4 +27,13 @@ def orders_list(request):
 
 
 def order_detail(request, order_id):
-    return HttpResponse(f"Order {order_id}")
+    try:
+        order = [o for o in orders if o["id"] == order_id][0]
+    except IndexError:
+        return HttpResponse(status=404)
+
+    context = {
+        "order": order,
+    }
+
+    return render(request, "core/order_detail.html", context)

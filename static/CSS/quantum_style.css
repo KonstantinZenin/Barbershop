@@ -180,7 +180,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Orbitron', sans-serif;
 }
 
-/* Стили для страницы заказов */
+/* Стили для страницы заказов (ИЗМЕНЕНО) */
 .quantum-orders {
     padding: 2rem 0;
 }
@@ -207,18 +207,19 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 20px;
 }
 
-/* Стили карточек заказов */
+/* Стили карточек заказов (ОБЪЕДИНЕНО И ИСПРАВЛЕНО) */
 .quantum-order-card {
     background: rgba(20, 20, 40, 0.7);
     border: 1px solid var(--quantum-primary);
     border-radius: 10px;
-    transition: all 0.3s;
     height: 100%;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
 }
 
 .quantum-order-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
+    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.3);
+    z-index: 10;
 }
 
 .quantum-card-header {
@@ -250,16 +251,26 @@ h1, h2, h3, h4, h5, h6 {
     border: 1px solid var(--quantum-primary);
 }
 
-/* Статусы */
+/* Статусы (ДОБАВЛЕНЫ АНИМАЦИИ) */
+.quantum-status-new,
+.quantum-status-in_progress {
+    display: inline-block; /* Важно для анимаций */
+}
+
 .quantum-status-new {
     color: var(--quantum-primary);
+    animation: pulse-blue 2s infinite;
 }
+
 .quantum-status-in_progress {
     color: #7b2dff;
+    animation: pulse-purple 1.5s infinite;
 }
+
 .quantum-status-completed {
     color: #0ff0fc;
 }
+
 .quantum-status-cancelled {
     color: #ff2d7b;
 }
@@ -267,4 +278,15 @@ h1, h2, h3, h4, h5, h6 {
 .quantum-card-footer {
     background: rgba(10, 10, 30, 0.9);
     border-top: 1px solid var(--quantum-secondary);
+}
+
+/* Ключевые кадры анимаций (НОВОЕ) */
+@keyframes pulse-blue {
+    0%, 100% { opacity: 0.8; text-shadow: 0 0 5px var(--quantum-primary); }
+    50% { opacity: 1; text-shadow: 0 0 15px var(--quantum-primary); }
+}
+
+@keyframes pulse-purple {
+    0%, 100% { opacity: 0.8; text-shadow: 0 0 5px var(--quantum-secondary); }
+    50% { opacity: 1; text-shadow: 0 0 15px var(--quantum-secondary); }
 }

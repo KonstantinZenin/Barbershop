@@ -27,8 +27,19 @@
         </ul>
     </div>
     <div class="card-footer quantum-card-footer">
+        {% comment %}
+        простой вариант оставил на будущее для справки
+        {% if request.resolver_match.url_name == 'orders_list' %}
         <a href="{% url 'order_detail' order.id %}" class="btn btn-quantum w-100">
             <i class="fas fa-binoculars me-2"></i>Детали миссии
-        </a>
+        </a> 
+        {% else %}
+        <a href="{% url 'orders_list' %}" class="btn btn-quantum w-100">
+        <i class="fas fa-binoculars me-2"></i>К списку миссий
+        </a> 
+        {% endif %} {% endcomment %}
+        <a href=" {% if request.resolver_match.url_name == 'orders_list' %} {% url 'order_detail' order.id %} {% else %} {% url 'orders_list' %} {% endif %}" class="btn btn-quantum w-100">
+            <i class="fas fa-binoculars me-2"></i>{% if request.resolver_match.url_name == 'orders_list'  %}Детали миссии {% else %}К списку миссий {% endif %} 
+        </a> 
     </div>
 </div>
