@@ -138,3 +138,133 @@ h1, h2, h3, h4, h5, h6 {
         font-size: 1.2rem;
     }
 }
+
+/* Стили для страницы благодарности */
+.quantum-thanks {
+    padding: 80px 0;
+    min-height: 70vh;
+}
+
+.quantum-icon-success {
+    position: relative;
+    font-size: 5rem;
+    color: var(--quantum-primary);
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+}
+
+.quantum-check {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: var(--quantum-light);
+}
+
+.quantum-message-box {
+    background: rgba(20, 20, 40, 0.7);
+    border: 1px solid var(--quantum-primary);
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+}
+
+.quantum-note {
+    color: var(--quantum-primary);
+    opacity: 0.7;
+}
+
+.text-quantum {
+    color: var(--quantum-primary);
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Стили для страницы заказов */
+.quantum-orders {
+    padding: 2rem 0;
+}
+
+.quantum-title {
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+
+.quantum-icon {
+    color: var(--quantum-primary);
+    margin-right: 15px;
+}
+
+.quantum-badge .badge {
+    background: rgba(123, 45, 255, 0.2);
+    color: var(--quantum-primary);
+    border: 1px solid var(--quantum-secondary);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    padding: 8px 15px;
+    border-radius: 20px;
+}
+
+/* Стили карточек заказов */
+.quantum-order-card {
+    background: rgba(20, 20, 40, 0.7);
+    border: 1px solid var(--quantum-primary);
+    border-radius: 10px;
+    transition: all 0.3s;
+    height: 100%;
+}
+
+.quantum-order-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
+}
+
+.quantum-card-header {
+    background: rgba(10, 10, 30, 0.9);
+    border-bottom: 1px solid var(--quantum-secondary);
+}
+
+.quantum-list-group {
+    background: transparent;
+}
+
+.quantum-list-item {
+    background: transparent;
+    color: var(--quantum-light);
+    border-color: rgba(0, 255, 255, 0.1);
+}
+
+.quantum-services {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 8px;
+}
+
+.quantum-service-badge {
+    background: rgba(0, 255, 255, 0.1);
+    color: var(--quantum-light);
+    font-weight: normal;
+    border: 1px solid var(--quantum-primary);
+}
+
+/* Статусы */
+.quantum-status-new {
+    color: var(--quantum-primary);
+}
+.quantum-status-in_progress {
+    color: #7b2dff;
+}
+.quantum-status-completed {
+    color: #0ff0fc;
+}
+.quantum-status-cancelled {
+    color: #ff2d7b;
+}
+
+.quantum-card-footer {
+    background: rgba(10, 10, 30, 0.9);
+    border-top: 1px solid var(--quantum-secondary);
+}

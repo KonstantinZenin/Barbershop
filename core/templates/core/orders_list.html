@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container quantum-orders">
+    <!-- Крутой техно-заголовок -->
+    <div class="text-center mb-5">
+        <h1 class="glow-text quantum-title">
+            <i class="fas fa-clipboard-list quantum-icon"></i>
+            {{ title }}
+        </h1>
+        <div class="quantum-badge">
+            <span class="badge bg-quantum">АКТИВНЫХ МИССИЙ: {{orders|length}}</span>
+        </div>
+    </div>
+
+    <!-- Три колонки заказов -->
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for order in orders %}
+        <div class="col">
+            {% include "core/includes/order_card_include.html" %}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

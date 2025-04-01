@@ -5,13 +5,11 @@ from .data import *
 
 
 def landing(request):
-    # return HttpResponse("Hello, world!")
     context = {
         "title_masters": "Наши мастера",
         "masters": masters,
         "title_services": "Наши услуги",
-        "services": services,
-    }
+        "services": services,}
     return render(request, "core/landing.html", context)
 
 
@@ -21,7 +19,11 @@ def thanks(request):
 
 
 def orders_list(request):
-    return HttpResponse("Orders list")
+    context = {
+        'title': 'КВАНТОВЫЙ ТРЕКЕР ЗАКАЗОВ',
+        'orders': orders,
+    }
+    return render(request, "core/orders_list.html", context)
 
 
 def order_detail(request, order_id):
