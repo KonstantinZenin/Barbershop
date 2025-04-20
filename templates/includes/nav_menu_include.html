@@ -1,0 +1,30 @@
+<!-- Навигационная панель -->
+<nav class="navbar navbar-expand-lg navbar-dark quantum-nav">
+    <div class="container">
+        <a class="navbar-brand glow-text" href="/">
+            <i class="fas fa-atom quantum-logo-icon"></i> Quantum Razor
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarQuantum">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarQuantum">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#masters">Наши мастера</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#services">Услуги</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'orders_list' %}">Список заказов</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contacts">Контакты</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
