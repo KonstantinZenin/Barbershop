@@ -10,22 +10,23 @@
         <div class="collapse navbar-collapse" id="navbarQuantum">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'landing' %}#about" >О нас</a >
+                    <a class="nav-link active" aria-current="page" href="{% url 'landing' %}#about">О нас</a>
                 </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'landing' %}#services"
-                      >Услуги</a
-                    >
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'landing' %}#masters"
-                      >Мастера</a
-                    >
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'landing' %}#booking"
-                      >Запись</a
-                    >
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'landing' %}#services">Услуги</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'landing' %}#masters">Мастера</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'landing' %}#booking">Запись</a>
+                </li>
+                
+                {% if user.is_staff %}
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'orders_list' %}">Список заказов</a>
+                </li>
+                {% endif %}
             </ul>
         </div>
     </div>

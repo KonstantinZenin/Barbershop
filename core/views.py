@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from .data import *
 from django.urls import reverse
+from django.contrib.admin.views.decorators import staff_member_required
 
 
 def landing(request):
@@ -21,6 +22,7 @@ def thanks(request):
     return render(request, "core/thanks.html", context)
 
 
+@staff_member_required
 def orders_list(request):
     context = {
         'title': 'КВАНТОВЫЙ ТРЕКЕР ЗАКАЗОВ',
@@ -29,6 +31,7 @@ def orders_list(request):
     return render(request, "core/orders_list.html", context)
 
 
+@staff_member_required
 def order_detail(request, order_id):
     try:
         order = [o for o in orders if o["id"] == order_id][0]
