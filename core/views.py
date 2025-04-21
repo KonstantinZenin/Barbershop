@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from .data import *
+from django.urls import reverse
 
 
 def landing(request):
@@ -13,7 +14,10 @@ def landing(request):
 
 
 def thanks(request):
-    context = {}
+    context = {
+        'countdown_seconds': 15,  # Время отсчета
+        'redirect_url': reverse('landing')
+    }
     return render(request, "core/thanks.html", context)
 
 

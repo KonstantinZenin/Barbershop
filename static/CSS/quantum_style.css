@@ -290,3 +290,127 @@ h1, h2, h3, h4, h5, h6 {
     0%, 100% { opacity: 0.8; text-shadow: 0 0 5px var(--quantum-secondary); }
     50% { opacity: 1; text-shadow: 0 0 15px var(--quantum-secondary); }
 }
+
+/* Стили для блока "О нас" */
+.quantum-about-section {
+    background: linear-gradient(
+        to right, 
+        rgba(10, 10, 30, 0.9), 
+        rgba(20, 20, 40, 0.7)
+    );
+    border-top: 1px solid var(--quantum-primary);
+    border-bottom: 1px solid var(--quantum-secondary);
+}
+
+.quantum-about-card {
+    background: rgba(15, 15, 35, 0.6);
+    border: 1px solid var(--quantum-secondary);
+    border-radius: 8px;
+    box-shadow: 0 0 25px rgba(123, 45, 255, 0.2);
+}
+
+.quantum-features {
+    list-style: none;
+    padding-left: 0;
+}
+
+.quantum-features li {
+    padding: 8px 0;
+    position: relative;
+    padding-left: 30px;
+}
+
+.quantum-feature-icon {
+    color: var(--quantum-primary);
+    position: absolute;
+    left: 0;
+    top: 10px;
+}
+
+.quantum-hologram-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.quantum-hologram-img {
+    border: 2px solid var(--quantum-primary);
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+    filter: brightness(1.1) contrast(0.9);
+    transition: transform 0.5s;
+}
+
+.quantum-hologram-img:hover {
+    transform: scale(1.03);
+}
+
+.quantum-signature-line {
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--quantum-primary), transparent);
+}
+
+/* Стили для блока записи */
+.quantum-booking-cta {
+    background: rgba(10, 10, 30, 0.8);
+    border-top: 1px solid var(--quantum-primary);
+    border-bottom: 1px solid var(--quantum-primary);
+    margin-top: 2rem;
+}
+
+.btn-quantum-pulse {
+    background: linear-gradient(45deg, var(--quantum-primary), var(--quantum-secondary));
+    border: none;
+    color: var(--quantum-dark);
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    padding: 10px 25px;
+    position: relative;
+    overflow: hidden;
+    animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+    0% { box-shadow: 0 0 10px rgba(0, 255, 255, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.8); }
+    100% { box-shadow: 0 0 10px rgba(0, 255, 255, 0.5); }
+}
+
+.btn-quantum-pulse:hover {
+    transform: translateY(-2px);
+    animation: none;
+    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.6);
+}
+
+/* Стили для таймера */
+.quantum-timer {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    border: 1px solid var(--quantum-primary);
+    border-radius: 12px;
+    background: rgba(15, 15, 35, 0.6);
+}
+
+.quantum-timer-text {
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+}
+
+.quantum-time {
+    font-size: 3.5rem;
+    color: var(--quantum-primary);
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+    margin: 0.5rem 0;
+    animation: quantum-pulse 1s infinite;
+}
+
+.quantum-time-unit {
+    color: var(--quantum-light);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+}
+
+@keyframes quantum-pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.8; }
+}

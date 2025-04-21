@@ -22,11 +22,29 @@
             <div class="quantum-note mt-4">
                 <p class="small">* Прибытие в точку пространства-времени "Quantum Razor" рекомендовано за 5 минут до назначенного срока</p>
             </div>
+            <!-- Таймер -->
             
+            <div id="countdown-data" 
+            data-seconds="{{ countdown_seconds }}"
+            data-redirect-url="{{ redirect_url }}"
+            style="display: none;"></div>
+
+            <div class="quantum-timer">
+                <div class="quantum-timer-text">
+                    <span class="glow-text">АВТОМАТИЧЕСКИЙ ПЕРЕХОД В МАТЕРИНСКУЮ МАТРИЦУ ЧЕРЕЗ</span>
+                    <div class="quantum-time" id="countdown"></div>
+                    <span class="quantum-time-unit">КВАНТОВЫХ СЕКУНД</span>
+                </div>
+            </div>
+
             <a href="{% url 'landing' %}" class="btn btn-quantum mt-4">
                 <i class="fas fa-arrow-left me-2"></i> Вернуться в материнскую матрицу
             </a>
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/quantum_countdown.js' %}"></script>
 {% endblock %}

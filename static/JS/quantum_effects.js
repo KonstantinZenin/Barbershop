@@ -17,15 +17,15 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Эффект параллакса для фона
-    if (window.innerWidth > 768) {
-        document.body.addEventListener('mousemove', function(e) {
-            const x = e.clientX / window.innerWidth;
-            const y = e.clientY / window.innerHeight;
+    // if (window.innerWidth > 768) {
+    //     document.body.addEventListener('mousemove', function(e) {
+    //         const x = e.clientX / window.innerWidth;
+    //         const y = e.clientY / window.innerHeight;
             
-            const glitchEffect = document.querySelector('.glitch-effect');
-            glitchEffect.style.backgroundPosition = `${x * 30}px ${y * 30}px`;
-        });
-    }
+    //         const glitchEffect = document.querySelector('.glitch-effect');
+    //         glitchEffect.style.backgroundPosition = `${x * 30}px ${y * 30}px`;
+    //     });
+    // }
     
     // Анимация появления элементов при скролле
     const animateOnScroll = function() {

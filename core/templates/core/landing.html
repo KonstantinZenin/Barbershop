@@ -2,25 +2,77 @@
 {% load static %}
 <!-- Блок для мастеров и услуг -->
 {% block content %}
-<div class="row">
-    <!-- Колонка мастеров -->
-    <div class="col-md-6" id="masters">
-        <h2 class="glow-text">Наши мастера</h2>
-        <ul class="quantum-list">
-            {% for master in masters %}
-            <li>{{ master.id }}. {{ master.name }}</li>
-            {% endfor %}
-        </ul>
+<section id="aboaut">
+    <div class="row align-items-center">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="glow-text mb-4">
+                        <i class="fas fa-atom quantum-icon"></i> 
+                        КВАНТОВАЯ РЕВОЛЮЦИЯ В БАРБЕРШОПЕ
+                    </h2>
+                    <div class="quantum-about-card p-4">
+                        <p class="quantum-text">Мы — <span class="text-quantum">Quantum Razor</span>, где технологии встречаются с традиционным мастерством.</p>
+                        
+                        <ul class="quantum-features">
+                            <li><i class="fas fa-microchip quantum-feature-icon"></i> Нейросетевые алгоритмы подбора стиля</li>
+                            <li><i class="fas fa-clock quantum-feature-icon"></i> Точность до миллиметра и секунды</li>
+                            <li><i class="fas fa-flask quantum-feature-icon"></i> Квантовые технологии ухода</li>
+                        </ul>
+                        
+                        <div class="quantum-signature mt-4">
+                            <p class="mb-1">— Команда <span class="text-quantum">Quantum Razor</span></p>
+                            <div class="quantum-signature-line"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="quantum-hologram-effect">
+                        <img src="{% static 'images/barber-team.jpg' %}" alt="Наша команда" class="img-fluid rounded-3 quantum-hologram-img">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+</section>
+
     
-    <!-- Колонка услуг -->
-    <div class="col-md-6" id="services">
-        <h2 class="glow-text">Наши услуги</h2>
-        <ul class="quantum-list">
-            {% for service in services %}
-            <li>{{ service }}</li>
-            {% endfor %}
-        </ul>
+    <div class="row">
+        <!-- Колонка мастеров -->
+        <div class="col-md-6" id="masters">
+            <h2 class="glow-text">Наши мастера</h2>
+            <ul class="quantum-list">
+                {% for master in masters %}
+                <li>{{ master.id }}. {{ master.name }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        </sectionid>
+        
+        <!-- Колонка услуг -->
+        <div class="col-md-6" id="services">
+            <h2 class="glow-text">Наши услуги</h2>
+            <ul class="quantum-list">
+                {% for service in services %}
+                <li>{{ service }}</li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
-</div>
+
+<section id="booking">
+    <div class="quantum-booking-cta">
+        <div class="container text-center py-4">
+            <div class="d-flex flex-column flex-md-row justify-content-center align-items-center">
+                <h3 class="glow-text mb-3 mb-md-0 me-md-4">
+                    <i class="fas fa-calendar-alt quantum-icon me-2"></i>
+                    ГОТОВЫ К КВАНТОВОМУ ПРЕОБРАЖЕНИЮ?
+                </h3>
+                <a href="{% url 'thanks' %}" class="btn btn-quantum-pulse">
+                    ЗАПИСАТЬСЯ СЕЙЧАС
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock content %}
