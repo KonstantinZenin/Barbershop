@@ -1,3 +1,4 @@
+from email.mime import image
 import re
 from django import db
 from django.db import models
@@ -52,3 +53,20 @@ class Master(models.Model):
         verbose_name = "Мастер"
         verbose_name_plural = "Мастера"
         ordering = ["first_name", "last_name"]
+
+
+class Service(models.Model):
+    name = models.CharField(max_length=200, verbose_name="Название")
+    description = models.TextField(verbose_name="Описание", blank=True)
+    price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена")
+    duration = models.PositiveIntegerField(verbose_name="Длительность", help_text="Время выполнения в минутах")
+    is_popular = models.BooleanField(default=False, verbose_name="Популярная услуга")
+    image = models.ImageField(upload_to="images/services/", blank=True, null=True, verbose_name="Изображение услуги")
+
+    def __str__(self):
+        return f'{self.name} - {self.price} руб.'
+    
+    class Meta:
+        verbose_name = "Услуга"
+        verbose_name_plural = "Услуги"
+        ordering = ["name"]
