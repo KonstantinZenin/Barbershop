@@ -1,6 +1,4 @@
-from email.mime import image
-import re
-from django import db
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 
 
@@ -70,3 +68,28 @@ class Service(models.Model):
         verbose_name = "Услуга"
         verbose_name_plural = "Услуги"
         ordering = ["name"]
+
+
+class Review(models.Model):
+    text = models.TextField(verbose_name="Текст отзыва")
+    client_name = models.CharField(max_length=100, verbose_name="Имя клиента", blank=True)
+    master = models.ForeignKey("Master", on_delete=models.CASCADE, verbose_name="Мастер")
+    photo = models.ImageField(upload_to="images/reviews/", blank=True, null=True, verbose_name="Фото")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
+    rating = models.IntegerField(default=5,
+            validators=[
+                MinValueValidator(1, message="Рейтинг не может быть меньше 1."),
+                MaxValueValidator(5, message="Рейтинг не может быть больше 5.")
+            ],
+            help_text="Рейтинг от 1 до 5", verbose_name="Оценка")
+    is_published = models.BooleanField(default=False, verbose_name="Опубликован")
+
+
+    def __str__(self):
+        return f"Отзыв от {self.client_name} на {self.master}"
+
+
+    class Meta:
+        verbose_name = "Отзыв"
+        verbose_name_plural = "Отзывы"
+        ordering = ["-created_at"]
