@@ -3,6 +3,7 @@ from django.db import models
 
 
 class Order(models.Model):
+    """Модель заказа."""
 
     STATUS_CHOICES = [
         ("not_approved", "Не подтвержден"),
@@ -18,8 +19,8 @@ class Order(models.Model):
     phone = models.CharField(max_length=20, verbose_name="Телефон")
     comment = models.TextField(verbose_name="Комментарий", blank=True)
     status = models.CharField(max_length=50, verbose_name="Статус", choices=STATUS_CHOICES, default="not_approved")
-    date_create = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания", db_index=True)
-    date_update = models.DateTimeField(auto_now=True, verbose_name="Дата обновления")
+    date_created = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания", db_index=True)
+    date_updated = models.DateTimeField(auto_now=True, verbose_name="Дата обновления")
     master = models.ForeignKey("Master", on_delete=models.SET_NULL,null=True, blank=True, verbose_name="Мастер")
     services = models.ManyToManyField("Service", verbose_name="Услуги", related_name='orders')
     appointment_date = models.DateTimeField(verbose_name="Дата и время записи")
@@ -34,13 +35,14 @@ class Order(models.Model):
 
 
 class Master(models.Model):
+    """Модель мастера."""
 
     first_name = models.CharField(max_length=100, db_index=True)
     last_name = models.CharField(max_length=100)
     photo = models.ImageField(upload_to="images/masters/", blank=True, null=True)
     phone = models.CharField(max_length=20, verbose_name="Телефон")
-    adress = models.CharField(max_length=255, verbose_name="Адрес")
-    experiece = models.PositiveBigIntegerField(verbose_name="Стаж", help_text="Опыт работы в годах")
+    address = models.CharField(max_length=255, verbose_name="Адрес")
+    experience = models.PositiveBigIntegerField(verbose_name="Стаж", help_text="Опыт работы в годах")
     services = models.ManyToManyField("Service", verbose_name="Услуги", related_name="masters")
     is_active = models.BooleanField(default=True, verbose_name="Активен")
 
@@ -54,6 +56,8 @@ class Master(models.Model):
 
 
 class Service(models.Model):
+    """Модель услуги."""
+
     name = models.CharField(max_length=200, verbose_name="Название")
     description = models.TextField(verbose_name="Описание", blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена")
@@ -71,12 +75,14 @@ class Service(models.Model):
 
 
 class Review(models.Model):
+    """Модель отзыва."""
+
     text = models.TextField(verbose_name="Текст отзыва")
     client_name = models.CharField(max_length=100, verbose_name="Имя клиента", blank=True)
     master = models.ForeignKey("Master", on_delete=models.CASCADE, verbose_name="Мастер")
     photo = models.ImageField(upload_to="images/reviews/", blank=True, null=True, verbose_name="Фото")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
-    rating = models.IntegerField(default=5,
+    rating = models.PositiveSmallIntegerField(default=5,
             validators=[
                 MinValueValidator(1, message="Рейтинг не может быть меньше 1."),
                 MaxValueValidator(5, message="Рейтинг не может быть больше 5.")
