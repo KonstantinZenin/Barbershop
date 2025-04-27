@@ -32,3 +32,23 @@ class Order(models.Model):
         verbose_name = "Заказ"
         verbose_name_plural = "Заказы"
         ordering = ["-date_created"]
+
+
+class Master(models.Model):
+
+    first_name = models.CharField(max_length=100, db_index=True)
+    last_name = models.CharField(max_length=100)
+    photo = models.ImageField(upload_to="images/masters/", blank=True, null=True)
+    phone = models.CharField(max_length=20, verbose_name="Телефон")
+    adress = models.CharField(max_length=255, verbose_name="Адрес")
+    experiece = models.PositiveBigIntegerField(verbose_name="Стаж", help_text="Опыт работы в годах")
+    services = models.ManyToManyField("Service", verbose_name="Услуги", related_name="masters")
+    is_active = models.BooleanField(default=True, verbose_name="Активен")
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
+    
+    class Meta:
+        verbose_name = "Мастер"
+        verbose_name_plural = "Мастера"
+        ordering = ["first_name", "last_name"]
