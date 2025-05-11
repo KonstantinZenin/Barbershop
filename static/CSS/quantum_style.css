@@ -414,3 +414,109 @@ h1, h2, h3, h4, h5, h6 {
     50% { transform: scale(1.1); opacity: 1; }
     100% { transform: scale(1); opacity: 0.8; }
 }
+
+/* Добавленные стили для карточек */
+.quantum-card-body {
+    padding: 15px;
+    background: rgba(15, 15, 35, 0.6);
+    border-radius: 8px;
+}
+
+/* Адаптация карточек для мобильных */
+@media (max-width: 768px) {
+    .quantum-order-card {
+        margin-bottom: 20px;
+    }
+    
+    .quantum-hologram-img {
+        max-height: 250px;
+    }
+}
+
+/* Стилизация рейтинга */
+.text-warning {
+    color: var(--quantum-primary) !important;
+}
+
+.text-secondary {
+    color: var(--quantum-light) !important;
+    opacity: 0.3;
+}
+
+/* Дополнение для круглых изображений */
+.rounded-circle {
+    border: 2px solid var(--quantum-primary);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+/* Исправления для бейджей услуг */
+.quantum-service-badge {
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    transition: all 0.3s;
+}
+
+.quantum-service-badge:hover {
+    white-space: normal;
+    overflow: visible;
+    z-index: 2;
+}
+
+/* Адаптация карточек услуг */
+.quantum-order-card {
+    min-height: 120px; /* Фиксированная высота для карточек услуг */
+}
+
+/* Стили для карточек услуг */
+.quantum-service-card {
+    background: linear-gradient(45deg, 
+        rgba(15, 15, 35, 0.8), 
+        rgba(25, 25, 55, 0.6)
+    );
+    border: 1px solid var(--quantum-primary);
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.quantum-service-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 255, 255, 0.25);
+}
+
+.quantum-service-icon {
+    font-size: 2.2rem;
+    color: var(--quantum-primary);
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+    min-width: 50px;
+}
+
+.quantum-service-desc {
+    color: var(--quantum-light);
+    opacity: 0.85;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    word-break: break-word;
+}
+
+/* Исправления для бейджей услуг */
+.quantum-service-badge {
+    background: rgba(0, 255, 255, 0.1) !important;
+    color: var(--quantum-light) !important;
+    border: 1px solid var(--quantum-primary);
+    border-radius: 20px;
+    margin: 3px;
+    padding: 8px 15px;
+    white-space: normal;
+    text-align: center;
+    display: inline-block;
+    max-width: 100%;
+    transition: all 0.2s;
+}
+
+.quantum-service-badge:hover {
+    transform: scale(1.05);
+    background: rgba(0, 255, 255, 0.2) !important;
+}

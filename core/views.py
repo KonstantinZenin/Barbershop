@@ -3,14 +3,17 @@ from django.shortcuts import render
 from .data import *
 from django.urls import reverse
 from django.contrib.admin.views.decorators import staff_member_required
+from .models import *
 
 
 def landing(request):
     context = {
         "title_masters": "Наши мастера",
-        "masters": masters,
+        "masters": Master.objects.prefetch_related('services').filter(is_active=True),
         "title_services": "Наши услуги",
-        "services": services,}
+        "services": Service.objects.all(),
+        "reviews": Review.objects.filter(is_published=True).select_related('master')[:6]
+    }
     return render(request, "core/landing.html", context)
 
 

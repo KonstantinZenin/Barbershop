@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
-<!-- Блок для мастеров и услуг -->
+
 {% block content %}
+<!-- Секция "О нас" -->
 <section id="about">
     <div class="row align-items-center">
         <div class="container py-5">
@@ -36,29 +37,49 @@
     </div>
 </section>
 
-    
-    <div class="row">
-        <!-- Колонка мастеров -->
-        <div class="col-md-6" id="masters">
-            <h2 class="glow-text">Наши мастера</h2>
-            <ul class="quantum-list">
-                {% for master in masters %}
-                <li>{{ master.id }}. {{ master.name }}</li>
-                {% endfor %}
-            </ul>
-        </div>
-        
-        <!-- Колонка услуг -->
-        <div class="col-md-6" id="services">
-            <h2 class="glow-text">Наши услуги</h2>
-            <ul class="quantum-list">
-                {% for service in services %}
-                <li>{{ service }}</li>
-                {% endfor %}
-            </ul>
+<!-- Секция услуг в две колонки -->
+<section id="services" class="my-5">
+    <div class="container">
+        <h2 class="glow-text text-center mb-4">{{ title_services }}</h2>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            {% for service in services %}
+            <div class="col quantum-animate">
+                <div class="quantum-order-card h-100 p-3">
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-wrench quantum-icon me-3 fs-4"></i>
+                        <div>
+                            <h5 class="glow-text mb-1">{{ service.name }}</h5>
+                            <p class="mb-0 text-quantum">{{ service.price }} руб.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
         </div>
     </div>
+</section>
 
+<!-- Инклюд блока мастеров -->
+<section id="masters" class="my-5">
+    <div class="container">
+        <h2 class="glow-text text-center mb-4">{{ title_masters }}</h2>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            {% include "core/includes/masters_cards_include.html" %}
+        </div>
+    </div>
+</section>
+
+<!-- Инклюд блока отзывов -->
+<section id="reviews" class="my-5">
+    <div class="container">
+        <h2 class="glow-text text-center mb-4">Квантовые отзывы</h2>
+        <div class="row g-4">
+            {% include "core/includes/reviews_cards_include.html" %}
+        </div>
+    </div>
+</section>
+
+<!-- Секция записи -->
 <section id="booking">
     <div class="quantum-booking-cta">
         <div class="container text-center py-4">

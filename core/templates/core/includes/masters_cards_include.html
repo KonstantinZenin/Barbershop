@@ -1,0 +1,46 @@
+<!-- Карточки мастеров -->
+{% load static %}
+{% for master in masters %}
+<div class="col">
+    <div class="quantum-order-card p-3 h-100">
+        <div class="quantum-card-header p-2 mb-3">
+            <h4 class="glow-text mb-0 text-truncate">
+                <i class="fas fa-user-astronaut quantum-icon"></i>
+                {{ master.first_name }} {{ master.last_name }}
+            </h4>
+        </div>
+        
+        <div class="quantum-card-body">
+            <div class="quantum-hologram-effect mb-3">
+                {% if master.photo %}
+                    <img src="{{ master.photo.url }}" 
+                        class="img-fluid w-100 quantum-hologram-img"
+                        style="height: 200px; object-fit: cover;"
+                        alt="{{ master.first_name }} {{ master.last_name }}">
+                {% else %}
+                    <img src="{% static 'images/favicon.webp' %}" 
+                        class="img-fluid w-100 quantum-hologram-img"
+                        style="height: 200px; object-fit: cover;"
+                        alt="Нет фото">
+                {% endif %}
+            </div>
+            
+            <ul class="quantum-list-group">
+                <li class="quantum-list-item d-flex justify-content-between">
+                    <span>Стаж:</span>
+                    <span class="text-quantum">{{ master.experience }} лет</span>
+                </li>
+                <li class="quantum-list-item">
+                    <div class="quantum-services flex-wrap">
+                        {% for service in master.services.all %}
+                        <span class="badge quantum-service-badge text-truncate m-1">
+                            {{ service.name }}
+                        </span>
+                        {% endfor %}
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endfor %}

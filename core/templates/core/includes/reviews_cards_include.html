@@ -1,0 +1,45 @@
+<!-- Карточки отзывов -->
+{% for review in reviews %}
+<div class="col-md-6 col-lg-4 quantum-animate">
+    <div class="quantum-order-card p-3 mb-4">
+        <!-- Заголовок с рейтингом -->
+        <div class="quantum-card-header p-2 mb-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <h5 class="glow-text mb-0">
+                    <i class="fas fa-user quantum-icon"></i>
+                    {{ review.client_name|default:"Аноним" }}
+                </h5>
+                <div class="quantum-status-completed">
+                    {% with "fa-star" as star %}
+                    {% for i in "12345" %}
+                    <i class="fas {{ star }} {% if forloop.counter <= review.rating %}text-warning{% else %}text-secondary{% endif %}"></i>
+                    {% endfor %}
+                    {% endwith %}
+                </div>
+            </div>
+        </div>
+        
+        <!-- Тело отзыва -->
+        <div class="quantum-card-body">
+            <p class="mb-3">{{ review.text}}</p>
+            
+            <!-- Фото отзыва -->
+            {% if review.photo %}
+            <div class="quantum-hologram-effect">
+                <img src="{{ review.photo.url }}" 
+                    alt="Фото отзыва" 
+                    class="img-fluid rounded-3 quantum-hologram-img">
+            </div>
+            {% endif %}
+        </div>
+        
+        <!-- Подвал -->
+        <div class="quantum-card-footer p-2 mt-3">
+            <small class="text-quantum">
+                <i class="fas fa-calendar quantum-icon"></i>
+                {{ review.created_at|date:"d.m.Y" }}
+            </small>
+        </div>
+    </div>
+</div>
+{% endfor %}
