@@ -7,20 +7,35 @@
     <div class="card-body">
         <ul class="list-group list-group-flush quantum-list-group">
             <li class="list-group-item quantum-list-item">
-                <i class="fas fa-user-tag me-2"></i>{{order.client_name}}
+                <i class="fas fa-user-tag me-2"></i>Клиент: {{ order.client_name }}
             </li>
             <li class="list-group-item quantum-list-item">
-                <i class="fas fa-clock me-2"></i>{{order.date}}
+                <i class="fas fa-phone me-2"></i>Телефон: {{ order.phone }}
             </li>
             <li class="list-group-item quantum-list-item">
-                <i class="fas fa-power-off me-2"></i>
-                <span class="quantum-status-{{order.status|lower}}">{{order.status}}</span>
+                <i class="fas fa-comment me-2"></i>Комментарий: {{ order.comment|default:"—" }}
             </li>
             <li class="list-group-item quantum-list-item">
-                <i class="fas fa-rocket me-2"></i>
+                <i class="fas fa-calendar-plus me-2"></i>Дата создания: {{ order.date_created|date:"d.m.Y H:i" }}
+            </li>
+            <li class="list-group-item quantum-list-item">
+                <i class="fas fa-calendar-check me-2"></i>Дата записи: {{ order.appointment_date|date:"d.m.Y H:i" }}
+            </li>
+            <li class="list-group-item quantum-list-item">
+                <i class="fas fa-user-cog me-2"></i>Мастер: 
+                {% if order.master %}{{ order.master }}{% else %}—{% endif %}
+            </li>
+            <li class="list-group-item quantum-list-item">
+                <i class="fas fa-power-off me-2"></i>Статус: 
+                <span class="quantum-status-{{ order.status|lower }}">
+                    {{ order.get_status_display }}
+                </span>
+            </li>
+            <li class="list-group-item quantum-list-item">
+                <i class="fas fa-rocket me-2"></i>Услуги:
                 <div class="quantum-services">
-                    {% for service in order.services %}
-                    <span class="badge quantum-service-badge">{{service}}</span>
+                    {% for service in order.services.all %}
+                        <span class="badge quantum-service-badge">{{ service.name }}</span>
                     {% endfor %}
                 </div>
             </li>

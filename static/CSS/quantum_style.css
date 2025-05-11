@@ -520,3 +520,39 @@ h1, h2, h3, h4, h5, h6 {
     transform: scale(1.05);
     background: rgba(0, 255, 255, 0.2) !important;
 }
+
+/* Стили для поисковой формы */
+.quantum-search-card {
+    background: rgba(20, 20, 40, 0.8);
+    border: 1px solid var(--quantum-primary);
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+}
+
+.quantum-checkbox .form-check-input {
+    background-color: var(--quantum-dark);
+    border: 2px solid var(--quantum-primary);
+}
+
+.quantum-checkbox .form-check-input:checked {
+    background-color: var(--quantum-primary);
+    border-color: var(--quantum-primary);
+}
+
+/* Исправляем цвет текста в поле ввода */
+.quantum-search-input {
+    color: var(--quantum-primary) !important; /* Голубой цвет как в стиле */
+    opacity: 0.9; /* Небольшая прозрачность */
+}
+
+/* Стиль для плейсхолдера */
+.quantum-search-input::placeholder {
+    color: var(--quantum-primary) !important;
+    opacity: 0.5 !important; /* Полупрозрачный вариант */
+}
+
+/* Сохраняем цвет при фокусе */
+.quantum-search-input:focus {
+    color: var(--quantum-primary) !important;
+    opacity: 1 !important;
+}

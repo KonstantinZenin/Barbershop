@@ -1,9 +1,11 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from .data import *
+# from .data import *
 from django.urls import reverse
 from django.contrib.admin.views.decorators import staff_member_required
 from .models import *
+from django.shortcuts import get_object_or_404
+from django.db.models import Q
 
 
 def landing(request):
@@ -27,19 +29,43 @@ def thanks(request):
 
 @staff_member_required
 def orders_list(request):
+    # Базовая выборка с оптимизацией запросов
+    orders = Order.objects.select_related('master').prefetch_related('services').all()
+    
+    # Обработка поискового запроса
+    search_query = request.GET.get('q', '')
+    if search_query:
+        # Получаем выбранные поля для поиска
+        search_fields = request.GET.getlist('search_in', ['name'])  # По умолчанию имя
+        
+        # Строим Q-объекты
+        filters = Q()
+        
+        if 'name' in search_fields:
+            filters |= Q(client_name__icontains=search_query)
+            
+        if 'phone' in search_fields:
+            filters |= Q(phone__icontains=search_query)
+            
+        if 'comment' in search_fields:
+            filters |= Q(comment__icontains=search_query)
+
+        # Применяем фильтры только если есть выбранные поля
+        if filters:
+            orders = orders.filter(filters)
+
+    # Сортировка и формирование контекста
     context = {
         'title': 'КВАНТОВЫЙ ТРЕКЕР ЗАКАЗОВ',
-        'orders': orders,
+        'orders': orders.order_by('-date_created'),
     }
+    
     return render(request, "core/orders_list.html", context)
 
 
 @staff_member_required
 def order_detail(request, order_id):
-    try:
-        order = [o for o in orders if o["id"] == order_id][0]
-    except IndexError:
-        return HttpResponse(status=404)
+    order = get_object_or_404(Order, id=order_id)
 
     context = {
         "order": order,
