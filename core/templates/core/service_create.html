@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="quantum-main">
+    <div class="container py-5">
+        <div class="quantum-about-card p-4 mx-auto" style="max-width: 700px;">
+            <h2 class="glow-text text-center mb-4">
+                <i class="fas fa-plus-circle quantum-icon"></i>
+                {{ title }}
+            </h2>
+            
+            <form method="POST" enctype="multipart/form-data" class="quantum-form">
+                {% csrf_token %}
+                
+                <div class="mb-4">
+                    <label class="glow-text quantum-label">
+                        <i class="fas fa-tag me-2"></i>Название услуги
+                    </label>
+                    {{ form.name }}
+                </div>
+
+                <div class="mb-4">
+                    <label class="glow-text quantum-label">
+                        <i class="fas fa-align-left me-2"></i>Описание
+                    </label>
+                    {{ form.description }}
+                </div>
+
+                <div class="row g-3 mb-4">
+                    <div class="col-md-6">
+                        <label class="glow-text quantum-label">
+                            <i class="fas fa-ruble-sign me-2"></i>Цена
+                        </label>
+                        {{ form.price }}
+                    </div>
+                    <div class="col-md-6">
+                        <label class="glow-text quantum-label">
+                            <i class="fas fa-clock me-2"></i>Длительность (мин)
+                        </label>
+                        {{ form.duration }}
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="glow-text quantum-label">
+                        <i class="fas fa-star me-2"></i>Популярная услуга
+                    </label>
+                    <div class="quantum-checkbox">
+                        {{ form.is_popular }}
+                        <label class="form-check-label glow-text" for="{{ form.is_popular.id_for_label }}">
+                            Сделать популярной
+                        </label>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="glow-text quantum-label">
+                        <i class="fas fa-image me-2"></i>Изображение услуги
+                    </label>
+                    {{ form.image }}
+                </div>
+
+                <div class="text-center mt-5">
+                    <button type="submit" class="btn btn-quantum-pulse px-5">
+                        <i class="fas fa-atom me-2"></i>Создать квантовую услугу
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock content %}

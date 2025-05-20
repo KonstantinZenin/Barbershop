@@ -1,11 +1,12 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-# from .data import *
 from django.urls import reverse
 from django.contrib.admin.views.decorators import staff_member_required
 from .models import *
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, redirect
 from django.db.models import Q
+from .forms import *
+from django.contrib import messages
 
 
 def landing(request):
@@ -72,3 +73,33 @@ def order_detail(request, order_id):
     }
 
     return render(request, "core/order_detail.html", context)
+
+
+@staff_member_required
+def service_create(request):
+
+    if request.method == "GET":
+        form = ServiceForm()
+        context = {
+        'title': 'Создание квантовой услуги',
+        'form': form,
+    }
+
+        return render(request, 'core/service_create.html', context)
+
+    if request.method == 'POST':
+        form = ServiceForm(request.POST, request.FILES)
+        if form.is_valid():
+            try:
+                form.save()
+                messages.success(request, f'Услуга {form.cleaned_data["name"]} успешно создана!')
+                return redirect("landing")
+            except ValidationError as e:
+                form.add_error(None, e)
+    
+        context = {
+            'title': 'Создание квантовой услуги',
+            'form': form,
+        }
+        
+        return render(request, 'core/service_create.html', context)

@@ -556,3 +556,54 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--quantum-primary) !important;
     opacity: 1 !important;
 }
+
+/* Стили для формы создания услуги */
+.quantum-form input:not([type="checkbox"]), 
+.quantum-form textarea, 
+.quantum-form select {
+    background: rgba(15, 15, 35, 0.7) !important;
+    border: 1px solid var(--quantum-primary) !important;
+    color: var(--quantum-light) !important;
+    padding: 12px;
+    border-radius: 8px;
+    width: 100%;
+    transition: all 0.3s;
+}
+
+.quantum-form input:focus,
+.quantum-form textarea:focus {
+    background: rgba(25, 25, 55, 0.8) !important;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3) !important;
+}
+
+.quantum-label {
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.quantum-checkbox .form-check-input {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.quantum-checkbox label {
+    vertical-align: middle;
+}
+
+/* Стили для файлового инпута */
+.quantum-form input[type="file"] {
+    padding: 10px;
+    border: 2px dashed var(--quantum-primary) !important;
+}
+
+.quantum-form input[type="file"]::file-selector-button {
+    background: var(--quantum-primary);
+    color: var(--quantum-dark);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Orbitron';
+}
