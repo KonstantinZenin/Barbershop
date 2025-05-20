@@ -32,6 +32,16 @@ class Order(models.Model):
         verbose_name = "Заказ"
         verbose_name_plural = "Заказы"
         ordering = ["-date_created"]
+        indexes = [
+            # Одиночные  Индексы по имени клиента, номеру телефона и комментарию
+            models.Index(fields=["client_name"], name="client_name_idx"),
+            models.Index(fields=["phone"], name="phone_idx"),
+            models.Index(fields=["comment"], name="comment_idx"),
+            # Составной индекс по имени клиента и номеру телефона
+            models.Index(fields=["client_name", "phone"], name="client_name_phone_idx"),
+            # Составной индекс по имени клиента и комментарию
+            models.Index(fields=["client_name", "comment"], name="client_name_comment_idx"),
+        ]
 
 
 class Master(models.Model):
@@ -53,6 +63,10 @@ class Master(models.Model):
         verbose_name = "Мастер"
         verbose_name_plural = "Мастера"
         ordering = ["first_name", "last_name"]
+        indexes = [
+            # Индек по имени
+            models.Index(fields=["first_name"], name="first_name_idx"),
+        ]
 
 
 class Service(models.Model):
@@ -72,6 +86,10 @@ class Service(models.Model):
         verbose_name = "Услуга"
         verbose_name_plural = "Услуги"
         ordering = ["name"]
+        indexes = [
+            # Индекс по названию
+            models.Index(fields=["name"], name="name_idx"),            
+        ]
 
 
 class Review(models.Model):
@@ -99,3 +117,7 @@ class Review(models.Model):
         verbose_name = "Отзыв"
         verbose_name_plural = "Отзывы"
         ordering = ["-created_at"]
+        indexes = [
+            # Индекс по имени клиента
+            models.Index(fields=["client_name"], name="client_name_idx"),
+        ]
