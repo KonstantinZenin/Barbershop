@@ -34,7 +34,7 @@ class Order(models.Model):
         ordering = ["-date_created"]
         indexes = [
             # Одиночные  Индексы по имени клиента, номеру телефона и комментарию
-            models.Index(fields=["client_name"], name="client_name_idx"),
+            models.Index(fields=["client_name"], name="order_client_name_idx"),
             models.Index(fields=["phone"], name="phone_idx"),
             models.Index(fields=["comment"], name="comment_idx"),
             # Составной индекс по имени клиента и номеру телефона
@@ -119,5 +119,5 @@ class Review(models.Model):
         ordering = ["-created_at"]
         indexes = [
             # Индекс по имени клиента
-            models.Index(fields=["client_name"], name="client_name_idx"),
+            models.Index(fields=["client_name"], name="review_client_name_idx"),
         ]
