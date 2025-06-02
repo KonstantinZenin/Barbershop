@@ -103,3 +103,21 @@ def service_create(request):
         }
         
         return render(request, 'core/service_create.html', context)
+    
+    
+def create_review(request):
+    if request.method == 'POST':
+        form = ReviewForm(request.POST, request.FILES)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.is_published = False  # Отзыв не публикуется сразу
+            review.save()
+            return redirect('thanks')
+    else:
+        form = ReviewForm()
+    
+    context = {
+        'title': 'Квантовый отзыв',
+        'form': form
+    }
+    return render(request, 'core/review_form.html', context)
