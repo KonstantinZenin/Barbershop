@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.urls import reverse
 from django.contrib.admin.views.decorators import staff_member_required
@@ -121,3 +121,24 @@ def create_review(request):
         'form': form
     }
     return render(request, 'core/review_form.html', context)
+
+
+def get_master_info(request):
+    """AJAX-представление для получения информации о мастере"""
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+        master_id = request.GET.get('master_id')
+        if master_id:
+            try:
+                master = Master.objects.get(pk=master_id)
+                master_data = {
+                    'id': master.id,
+                    'name': f"{master.first_name} {master.last_name}",
+                    'experience': master.experience,
+                    'photo': master.photo.url if master.photo else None,
+                    'services': [{'name': service.name} for service in master.services.all()],
+                }
+                return JsonResponse({'success': True, 'master': master_data})
+            except Master.DoesNotExist:
+                return JsonResponse({'success': False, 'error': 'Мастер не найден'})
+        return JsonResponse({'success': False, 'error': 'Не указан ID мастера'})
+    return JsonResponse({'success': False, 'error': 'Недопустимый запрос'})
