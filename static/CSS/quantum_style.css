@@ -607,3 +607,53 @@ h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
     font-family: 'Orbitron';
 }
+
+/* Стили для формы отзыва */
+.quantum-form-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.star-rating {
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #444;
+    margin-top: 5px;
+}
+
+.star-rating i {
+    transition: all 0.3s;
+    margin-right: 5px;
+}
+
+.star-rating i:hover {
+    transform: scale(1.2);
+}
+
+.quantum-master-card {
+    background: rgba(30, 30, 60, 0.7);
+    border: 1px solid var(--quantum-primary);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+}
+
+.quantum-error {
+    color: #ff2d7b;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.quantum-file-input::file-selector-button {
+    background: var(--quantum-primary);
+    color: var(--quantum-dark);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Orbitron';
+    transition: all 0.3s;
+}
+
+.quantum-file-input::file-selector-button:hover {
+    background: var(--quantum-secondary);
+}
