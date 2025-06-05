@@ -657,3 +657,42 @@ h1, h2, h3, h4, h5, h6 {
 .quantum-file-input::file-selector-button:hover {
     background: var(--quantum-secondary);
 }
+
+/* Стили для блока благодарности */
+.quantum-thanks {
+    padding: 80px 0;
+    min-height: 70vh;
+}
+
+.quantum-icon-success {
+    position: relative;
+    font-size: 5rem;
+    color: var(--quantum-primary);
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+}
+
+.quantum-check {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: var(--quantum-light);
+}
+
+.quantum-message-box {
+    background: rgba(20, 20, 40, 0.7);
+    border: 1px solid var(--quantum-primary);
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+    margin-bottom: 2rem;
+}
+
+.quantum-note {
+    color: var(--quantum-primary);
+    opacity: 0.7;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}

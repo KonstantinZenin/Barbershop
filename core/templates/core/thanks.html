@@ -5,29 +5,38 @@
 <div class="container text-center quantum-thanks">
     <div class="row justify-content-center">
         <div class="col-lg-8">
-            <!-- Крутой техно-иконка -->
             <div class="quantum-icon-success mb-4">
                 <i class="fas fa-atom fa-spin"></i>
                 <i class="fas fa-check quantum-check"></i>
             </div>
             
-            <h1 class="glow-text mb-4">КВАНТОВАЯ БЛАГОДАРНОСТЬ!</h1>
+            {% if is_review %}
+                <!-- Контент для отзыва -->
+                <h1 class="glow-text mb-4">КВАНТОВАЯ БЛАГОДАРНОСТЬ ЗА ОТЗЫВ!</h1>
+                <div class="quantum-message-box p-4 mb-4">
+                    <p class="lead">Ваш отзыв успешно прошел через <span class="text-quantum">пространственно-временной портал</span> и достиг нашей квантовой матрицы!</p>
+                    <p>Наши алгоритмы уже анализируют ваше мнение для улучшения сервиса.</p>
+                </div>
+                <div class="quantum-note mt-4">
+                    <p class="small">* Отзыв будет опубликован после прохождения квантовой модерации</p>
+                </div>
+            {% else %}
+                <!-- Контент для записи -->
+                <h1 class="glow-text mb-4">КВАНТОВАЯ БЛАГОДАРНОСТЬ!</h1>
+                <div class="quantum-message-box p-4 mb-4">
+                    <p class="lead">Ваш заказ успешно прошел через <span class="text-quantum">пространственно-временной портал</span> и достиг нашей квантовой матрицы!</p>
+                    <p>Наш <span class="text-quantum">нейросетевой барбер</span> уже готовится к вашему визиту.</p>
+                </div>
+                <div class="quantum-note mt-4">
+                    <p class="small">* Прибытие в точку пространства-времени "Quantum Razor" рекомендовано за 5 минут до назначенного срока</p>
+                </div>
+            {% endif %}
             
-            <div class="quantum-message-box p-4 mb-4">
-                <p class="lead">Ваш заказ успешно прошел через <span class="text-quantum">пространственно-временной портал</span> и достиг нашей квантовой матрицы!</p>
-                
-                <p>Наш <span class="text-quantum">нейросетевой барбер</span> уже готовится к вашему визиту.</p>
-            </div>
-            
-            <div class="quantum-note mt-4">
-                <p class="small">* Прибытие в точку пространства-времени "Quantum Razor" рекомендовано за 5 минут до назначенного срока</p>
-            </div>
-            <!-- Таймер -->
-            
+            <!-- Общий таймер -->
             <div id="countdown-data" 
-            data-seconds="{{ countdown_seconds }}"
-            data-redirect-url="{{ redirect_url }}"
-            style="display: none;"></div>
+                data-seconds="{{ countdown_seconds }}"
+                data-redirect-url="{{ redirect_url }}"
+                style="display: none;"></div>
 
             <div class="quantum-timer">
                 <div class="quantum-timer-text">

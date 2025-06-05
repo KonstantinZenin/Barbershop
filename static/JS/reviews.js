@@ -1,3 +1,9 @@
+// Получаем URL
+function getApiUrl(endpoint) {
+    const apiUrls = document.getElementById('data_div');
+    return apiUrls ? apiUrls.dataset[endpoint] : '';
+}
+
 // Функция для обновления звезд
 function updateStars(rating) {
     document.querySelectorAll('.star-rating i').forEach(star => {
@@ -49,9 +55,10 @@ document.addEventListener('DOMContentLoaded', function() {
         masterSelect.addEventListener('change', function() {
             const masterId = this.value;
             const infoDiv = document.getElementById('master-info');
+            const masterInfoUrl = getApiUrl('masterInfo');
             
-            if (masterId) {
-                fetch(`/api/master-info/?master_id=${masterId}`, {
+            if (masterId && masterInfoUrl) {
+                fetch(`${masterInfoUrl}?master_id=${masterId}`, {
                     headers: { 'X-Requested-With': 'XMLHttpRequest' }
                 })
                 .then(response => response.json())

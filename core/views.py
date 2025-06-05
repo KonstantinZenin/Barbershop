@@ -21,9 +21,13 @@ def landing(request):
 
 
 def thanks(request):
+    # Определяем тип благодарности по параметру URL
+    source = request.GET.get('source', 'booking')
+    
     context = {
-        'countdown_seconds': 15,  # Время отсчета
-        'redirect_url': reverse('landing')
+        'countdown_seconds': 15,
+        'redirect_url': reverse('landing'),
+        'is_review': source == 'review'
     }
     return render(request, "core/thanks.html", context)
 
@@ -110,9 +114,10 @@ def create_review(request):
         form = ReviewForm(request.POST, request.FILES)
         if form.is_valid():
             review = form.save(commit=False)
-            review.is_published = False  # Отзыв не публикуется сразу
+            review.is_published = False
             review.save()
-            return redirect('thanks')
+            # Добавляем параметр source=review
+            return redirect(f"{reverse('thanks')}?source=review")
     else:
         form = ReviewForm()
     
