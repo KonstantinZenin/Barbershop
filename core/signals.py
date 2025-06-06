@@ -6,9 +6,13 @@ from .telegram_bot import send_telegram_message
 from asyncio import run
 # Из настроек импортируем токен и id чата
 from django.conf import settings
+from django.urls import reverse
 
 TELEGRAM_BOT_API_KEY = settings.TELEGRAM_BOT_API_KEY
 TELEGRAM_USER_ID = settings.TELEGRAM_USER_ID
+
+
+
 
 
 @receiver(m2m_changed, sender=Order.services.through)
@@ -16,23 +20,21 @@ def send_telegram_notification(sender, instance, action, **kwargs):
     """
     Обработчик сигнала m2m_changed для модели Order.
     Он обрабатывает добавление КАЖДОЙ услуги в запись на консультацию.
-    
     """
-    # action == 'post_add' - это значит что в промежуточную таблицу добавили новую связь. НО нам надо убедится что это именно добавление новой связи, а не удаление или изменение
-    # pk_set - это список id услуг которые были добавлены в запись (формируется только при создании Order или удалении)
-    # Комбинация позволяет ТОЧНО понять что это именно создание НОВОЙ услуги и что все M2M связи уже созданы
     if action == 'post_add' and kwargs.get('pk_set'):
         # Получаем список услуг
-        services = [service.name for service in instance.services.all()]
+        services = [f"✨ {service.name}" for service in instance.services.all()]
 
-        # Форматирование даты и времени для желаемой даты записи, и даты создания услуги
-        if instance.appointment_date:
-            appointment_date = instance.appointment_date.strftime("%d.%m.%Y %H:%M")
-        else:
-            appointment_date = 'не указана'
-
-        # Форматируем дату создания
+        # Форматирование даты и времени
+        appointment_date = instance.appointment_date.strftime("%d.%m.%Y %H:%M") if instance.appointment_date else 'не указана'
         date_created = instance.date_created.strftime("%d.%m.%Y %H:%M")
+
+        # Создаем динамическую ссылку на админку с fallback
+        try:
+            admin_path = reverse('admin:core_order_change', args=[instance.id])
+            admin_url = f"{settings.BASE_URL}{admin_path}" if hasattr(settings, 'BASE_URL') else f"http://127.0.0.1:8000{admin_path}"
+        except:
+            admin_url = f"http://127.0.0.1:8000/admin/core/order/{instance.id}/change/"
 
         # Формируем сообщение
         message = f"""
@@ -50,9 +52,9 @@ def send_telegram_notification(sender, instance, action, **kwargs):
 📅 *Дата записи:* `{appointment_date}`
 
 🔗 *Ссылка на админку:* 
-http://127.0.0.1:8000/admin/core/order/{instance.id}/change/
+{admin_url}
 
 #запись #{instance.master.last_name.lower()}
 -------------------------------------------------------------
-"""
+        """
         run(send_telegram_message(TELEGRAM_BOT_API_KEY, TELEGRAM_USER_ID, message))
