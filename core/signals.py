@@ -36,16 +36,21 @@ def send_telegram_notification(sender, instance, action, **kwargs):
 
         # Формируем сообщение
         message = f"""
-*Новая запись на консультацию* 
+⚡ *КВАНТОВОЕ УВЕДОМЛЕНИЕ: НОВАЯ ЗАПИСЬ* ⚡
 
-*Имя:* {instance.client_name} 
-*Телефон:* {instance.phone or 'не указан'} 
-*Комментарий:* {instance.comment or 'не указан'}
-*Услуги:* {', '.join(services) or 'не указаны'}
-*Дата создания:* {date_created}
-*Мастер:* {instance.master.first_name} {instance.master.last_name}
-*Желаемая дата записи:* {appointment_date}
-*Ссылка на админ-панель:* http://127.0.0.1:8000/admin/core/order/{instance.id}/change/
+🔹 *Клиент:* `{instance.client_name}`
+📞 *Телефон:* `{instance.phone or 'не указан'}`
+💬 *Комментарий:* `{instance.comment or 'не указан'}`
+
+🛠 *Услуги:*
+{chr(10).join(services) or 'не указаны'}
+
+⏳ *Дата создания:* `{date_created}`
+👨‍🎨 *Мастер:* `{instance.master.first_name} {instance.master.last_name}`
+📅 *Дата записи:* `{appointment_date}`
+
+🔗 *Ссылка на админку:* 
+http://127.0.0.1:8000/admin/core/order/{instance.id}/change/
 
 #запись #{instance.master.last_name.lower()}
 -------------------------------------------------------------
