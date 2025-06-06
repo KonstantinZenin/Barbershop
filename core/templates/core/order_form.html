@@ -1,0 +1,85 @@
+<!-- core/templates/core/order_form.html -->
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div id="data_div" 
+    data-services-url="{% url 'get_services_by_master' %}"
+    style="display: none;">
+</div>
+
+<section class="quantum-main">
+    <div class="container py-5">
+        <div class="quantum-about-card p-4 mx-auto" style="max-width: 700px;">
+            <h2 class="glow-text text-center mb-4">
+                <i class="fas fa-calendar-plus quantum-icon"></i>
+                {{ title }}
+            </h2>
+            
+            <form method="POST" class="quantum-form" id="order-form">
+                {% csrf_token %}
+                
+                <!-- Выбор мастера -->
+                <div class="mb-4">
+                    <label class="glow-text quantum-label">
+                        <i class="fas fa-user-cog me-2"></i>Выберите мастера
+                    </label>
+                    {{ form.master }}
+                    <div id="master-info" class="mt-3"></div>
+                </div>
+
+                <!-- Выбор услуги (изначально скрыт) -->
+                <div class="mb-4" id="services-section" style="display: none;">
+                    <label class="glow-text quantum-label">
+                        <i class="fas fa-scissors me-2"></i>Выберите услуги
+                    </label>
+                    <div id="services-container" class="quantum-scrollbar">
+                    </div>
+                </div>
+
+                <!-- Имя клиента -->
+                <div class="mb-4">
+                    <label class="glow-text quantum-label">
+                        <i class="fas fa-user me-2"></i>Ваше имя
+                    </label>
+                    {{ form.client_name }}
+                </div>
+
+                <!-- Телефон -->
+                <div class="mb-4">
+                    <label class="glow-text quantum-label">
+                        <i class="fas fa-phone me-2"></i>Телефон
+                    </label>
+                    {{ form.phone }}
+                </div>
+
+                <!-- Дата и время записи -->
+                <div class="mb-4">
+                    <label class="glow-text quantum-label">
+                        <i class="fas fa-clock me-2"></i>Дата и время записи
+                    </label>
+                    {{ form.appointment_date }}
+                </div>
+
+                <!-- Комментарий -->
+                <div class="mb-4">
+                    <label class="glow-text quantum-label">
+                        <i class="fas fa-comment me-2"></i>Комментарий (необязательно)
+                    </label>
+                    {{ form.comment }}
+                </div>
+
+                <div class="text-center mt-5">
+                    <button type="submit" class="btn btn-quantum-pulse px-5">
+                        <i class="fas fa-paper-plane me-2"></i>Создать квантовую запись
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock content %}
+
+{% block extra_js %}
+<script src="{% static 'js/order_form.js' %}"></script>
+{% endblock extra_js %}

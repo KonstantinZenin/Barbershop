@@ -147,3 +147,39 @@ def get_master_info(request):
                 return JsonResponse({'success': False, 'error': 'Мастер не найден'})
         return JsonResponse({'success': False, 'error': 'Не указан ID мастера'})
     return JsonResponse({'success': False, 'error': 'Недопустимый запрос'})
+
+
+def create_order(request):
+    if request.method == 'POST':
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            order = form.save(commit=False)
+            order.status = 'not_approved'  # Статус по умолчанию
+            order.save()
+            form.save_m2m()  # Сохраняем ManyToMany поля
+            
+            messages.success(request, 'Ваша запись успешно создана!')
+            return redirect(f"{reverse('thanks')}?source=booking")
+    else:
+        form = OrderForm()
+    
+    context = {
+        'title': 'Квантовая запись',
+        'form': form
+    }
+    return render(request, 'core/order_form.html', context)
+
+
+def get_services_by_master(request):
+    """AJAX-представление для получения услуг мастера"""
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+        master_id = request.GET.get('master_id')
+        if master_id:
+            try:
+                master = Master.objects.get(pk=master_id)
+                services = master.services.all().values('id', 'name')
+                return JsonResponse({'success': True, 'services': list(services)})
+            except Master.DoesNotExist:
+                return JsonResponse({'success': False, 'error': 'Мастер не найден'})
+        return JsonResponse({'success': False, 'error': 'Не указан ID мастера'})
+    return JsonResponse({'success': False, 'error': 'Недопустимый запрос'})
