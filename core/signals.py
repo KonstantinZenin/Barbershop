@@ -1,4 +1,4 @@
-from .models import Order
+from .models import Order, Review
 from django.db.models.signals import post_save, m2m_changed
 from django.dispatch import receiver
 # Импорт всего что нужно для работы бота
@@ -7,11 +7,38 @@ from asyncio import run
 # Из настроек импортируем токен и id чата
 from django.conf import settings
 from django.urls import reverse
+from.mistral import is_bad_review
 
 TELEGRAM_BOT_API_KEY = settings.TELEGRAM_BOT_API_KEY
 TELEGRAM_USER_ID = settings.TELEGRAM_USER_ID
 
+@receiver(post_save, sender=Review)
+def check_review_text(sender, instance, created, **kwargs):
+    """
+    Проверяет текст отзыва по заданным в настройках градациям
+    """
+    if created:
+        if not is_bad_review(instance.text):
+            instance.is_published = True
+            instance.save()
+            # Отправка в телеграм
+            message = f"""
+*Новый отзыв от клиента*
+*Имя:* {instance.client_name}
+*Текст:* {instance.text}
+*Оценка:* {instance.rating}
+*Ссылка на отзыв:* http://127.0.0.1:8000/admin/core/review/{instance.id}/change/
 
+#отзыв
+"""
+            run(send_telegram_message(TELEGRAM_BOT_API_KEY, TELEGRAM_USER_ID, message))
+        
+        
+        else:
+            instance.is_published = False
+            instance.save()
+            # Вывод в терминал 
+            print(f"Отзыв '{instance.client_name}' не опубликован из-за негативных слов.")
 
 
 
