@@ -28,10 +28,15 @@ class UserRegisterForm(UserCreationForm):
         widget=forms.EmailInput(attrs={'class': 'form-control mb-2', 'placeholder': 'Email'}),
         required=True
     )
+    phone = forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control mb-2', 'placeholder': 'Телефон (необязательно)'}),
+        required=False,
+        max_length=20
+    )
 
     class Meta:
         model = User
-        fields = ('username', 'email')
+        fields = ('username', 'email', 'phone')
 
     def __init__(self, *args, **kwargs):
         """Инициализация формы входа: настройка полей."""

@@ -31,6 +31,12 @@ class User(AbstractUser):
         null=True, 
         verbose_name='Telegram ID'
     )
+    phone = models.CharField(
+        max_length=20, 
+        blank=True, 
+        null=True, 
+        verbose_name='Телефон'
+    )
 
     # Указываем, что для логина будет использоваться поле email
     USERNAME_FIELD = 'email'

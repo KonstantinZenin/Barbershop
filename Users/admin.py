@@ -4,18 +4,17 @@ from .models import User
 
 @admin.register(User)
 class CustomUserAdmin(UserAdmin):
-    list_display = ('username', 'email', 'work_address', 'telegram_id')
-    search_fields = ('username', 'email', 'telegram_id')
+    model = User
+    list_display = ('email', 'username', 'phone', 'is_staff')
     fieldsets = (
-        (None, {'fields': ('username', 'email', 'password')}),
-        ('Персональная информация', {'fields': ('avatar', 'birth_date', 'work_address')}),
-        ('Контакты', {'fields': ('telegram_id',)}),
-        ('Права', {'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions')}),
-        ('Важные даты', {'fields': ('last_login', 'date_joined')}),
+        (None, {'fields': ('email', 'username', 'password')}),
+        ('Personal info', {'fields': ('phone', 'avatar', 'birth_date', 'telegram_id', 'work_address')}),
+        ('Permissions', {'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions')}),
+        ('Important dates', {'fields': ('last_login', 'date_joined')}),
     )
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('email', 'username', 'password1', 'password2'),
+            'fields': ('email', 'username', 'password1', 'password2', 'phone'),
         }),
     )
