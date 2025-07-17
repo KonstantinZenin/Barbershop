@@ -1,0 +1,1369 @@
+[
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$870000$pLBGd60oGgTH5UtYnV2S43$FJ48jimwo2Ukw0a4zGcasFB9sOf5/KnmzWZ06PAw84k=",
+    "last_login": "2025-07-16T19:25:23.340Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-04-21T16:50:46.167Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "0kqx4jh9hfmemv84witsxhvx9qou3ylb",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyGwsAgevfsNhF2oVA1NSnsy_rtt0oNe5jDvzbxFTOtS49rLHMcsLkKL029HiZ-l7SA_UrtPkqe2zCPJXZEH7fI25fK6Hu7fQU29bmsfQtI4qHO2SEDgk7HOAwIYxWh8dqjA-mBgS1KZnSqBg2NN6PygxecLp2k2Vw:1u8zKn:eIQ430lrv95wDyfgrCNBBVkhjqxNu4ogJbxl59zCb_4",
+    "expire_date": "2025-05-11T10:34:05.219Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "1ag0yg9bvmak7fyo8bf9ifrxbpl23wog",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyGwsAgevfsNhF2oVA1NSnsy_rtt0oNe5jDvzbxFTOtS49rLHMcsLkKL029HiZ-l7SA_UrtPkqe2zCPJXZEH7fI25fK6Hu7fQU29bmsfQtI4qHO2SEDgk7HOAwIYxWh8dqjA-mBgS1KZnSqBg2NN6PygxecLp2k2Vw:1uc7kp:kc-Nv7eggUpW0NyWJC45kWz8JNo_EHfwHIH-ogK5xWU",
+    "expire_date": "2025-07-30T19:25:23.349Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "6s8er56j7k9mxd1hgxk3h06hlv03208e",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyGwsAgevfsNhF2oVA1NSnsy_rtt0oNe5jDvzbxFTOtS49rLHMcsLkKL029HiZ-l7SA_UrtPkqe2zCPJXZEH7fI25fK6Hu7fQU29bmsfQtI4qHO2SEDgk7HOAwIYxWh8dqjA-mBgS1KZnSqBg2NN6PygxecLp2k2Vw:1uGHME:F-x3vQVLHKrRK_h2My6D1-3MeQBKDkwKrQPLCdNaHTU",
+    "expire_date": "2025-05-31T13:13:42.431Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "7l6qxtfq3ywe38wje6no0qqcuswv1shi",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyGwsAgevfsNhF2oVA1NSnsy_rtt0oNe5jDvzbxFTOtS49rLHMcsLkKL029HiZ-l7SA_UrtPkqe2zCPJXZEH7fI25fK6Hu7fQU29bmsfQtI4qHO2SEDgk7HOAwIYxWh8dqjA-mBgS1KZnSqBg2NN6PygxecLp2k2Vw:1uE2N9:RA8dOUEFSfdYX9NM32GExtxGV_kuZunyfLbaF5vO2Gk",
+    "expire_date": "2025-05-25T08:49:23.746Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "h6t2201aygc9q7mlszecohut7bhjr11h",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyGwsAgevfsNhF2oVA1NSnsy_rtt0oNe5jDvzbxFTOtS49rLHMcsLkKL029HiZ-l7SA_UrtPkqe2zCPJXZEH7fI25fK6Hu7fQU29bmsfQtI4qHO2SEDgk7HOAwIYxWh8dqjA-mBgS1KZnSqBg2NN6PygxecLp2k2Vw:1uM0rM:mu7O-8nizPWLt2FLXTg5OpJt7wDFIcUuUTPw5uj_nj0",
+    "expire_date": "2025-06-16T08:49:32.452Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "h7n7tvp6mt6nxtcm0oi8l3hufxmwc033",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyGwsAgevfsNhF2oVA1NSnsy_rtt0oNe5jDvzbxFTOtS49rLHMcsLkKL029HiZ-l7SA_UrtPkqe2zCPJXZEH7fI25fK6Hu7fQU29bmsfQtI4qHO2SEDgk7HOAwIYxWh8dqjA-mBgS1KZnSqBg2NN6PygxecLp2k2Vw:1uBUzN:pz08V5mPHyl2FAooReQdztGsWNKHMLIvJPhmmOu_AjY",
+    "expire_date": "2025-05-18T08:46:21.873Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "o1aq13j399xz4z1yosyzupdg4e56mf47",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyGwsAgevfsNhF2oVA1NSnsy_rtt0oNe5jDvzbxFTOtS49rLHMcsLkKL029HiZ-l7SA_UrtPkqe2zCPJXZEH7fI25fK6Hu7fQU29bmsfQtI4qHO2SEDgk7HOAwIYxWh8dqjA-mBgS1KZnSqBg2NN6PygxecLp2k2Vw:1uNSOa:XK39RKzcqBgXcWzvtAEQwwybtGU9I3bx7U1fhDOb_U8",
+    "expire_date": "2025-06-20T08:25:48.722Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "swbkkggvjdncjxqury5deu82nsk6sm4k",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyGwsAgevfsNhF2oVA1NSnsy_rtt0oNe5jDvzbxFTOtS49rLHMcsLkKL029HiZ-l7SA_UrtPkqe2zCPJXZEH7fI25fK6Hu7fQU29bmsfQtI4qHO2SEDgk7HOAwIYxWh8dqjA-mBgS1KZnSqBg2NN6PygxecLp2k2Vw:1u6uOF:mcug6JGYWjC7S9idkSGiNu9Xrq3yFqFrKpMxFn3amNI",
+    "expire_date": "2025-05-05T16:53:03.627Z"
+  }
+},
+{
+  "model": "core.order",
+  "pk": 1,
+  "fields": {
+    "client_name": "Валя",
+    "phone": "+7 (961-)333-20-15",
+    "comment": "у меня жёсткие волосы!",
+    "status": "approved",
+    "date_created": "2025-04-27T14:57:18.980Z",
+    "date_updated": "2025-04-27T14:57:18.980Z",
+    "master": 3,
+    "appointment_date": "2025-04-27T10:57:10Z",
+    "services": [
+      10
+    ]
+  }
+},
+{
+  "model": "core.order",
+  "pk": 2,
+  "fields": {
+    "client_name": "Константин",
+    "phone": "+7 (999) 621-45-47",
+    "comment": "",
+    "status": "completed",
+    "date_created": "2025-04-27T14:57:59.228Z",
+    "date_updated": "2025-04-27T14:57:59.228Z",
+    "master": 2,
+    "appointment_date": "2025-02-27T16:07:48Z",
+    "services": [
+      10
+    ]
+  }
+},
+{
+  "model": "core.order",
+  "pk": 3,
+  "fields": {
+    "client_name": "Сергей",
+    "phone": "+7 (961-)333-20-15",
+    "comment": "",
+    "status": "canceled",
+    "date_created": "2025-04-27T14:58:25.224Z",
+    "date_updated": "2025-04-27T14:58:25.224Z",
+    "master": 1,
+    "appointment_date": "2025-04-27T14:58:22Z",
+    "services": [
+      3
+    ]
+  }
+},
+{
+  "model": "core.order",
+  "pk": 4,
+  "fields": {
+    "client_name": "Константин Test3",
+    "phone": "+7 (999) 621-45-47",
+    "comment": "test1?@#$!3",
+    "status": "not_approved",
+    "date_created": "2025-06-05T11:29:12.801Z",
+    "date_updated": "2025-06-05T11:29:12.801Z",
+    "master": 2,
+    "appointment_date": "2025-06-12T18:31:00Z",
+    "services": [
+      3,
+      1,
+      8
+    ]
+  }
+},
+{
+  "model": "core.order",
+  "pk": 5,
+  "fields": {
+    "client_name": "ТелегаТест10",
+    "phone": "+7 (495) 666-42-00",
+    "comment": "вамивка",
+    "status": "not_approved",
+    "date_created": "2025-06-06T07:50:39.722Z",
+    "date_updated": "2025-06-06T07:50:39.722Z",
+    "master": 1,
+    "appointment_date": "2025-06-18T14:53:00Z",
+    "services": [
+      9,
+      10,
+      6
+    ]
+  }
+},
+{
+  "model": "core.order",
+  "pk": 6,
+  "fields": {
+    "client_name": "ТелегаТест11",
+    "phone": "+7 (999) 621-45-47",
+    "comment": "тест кватогового 11",
+    "status": "not_approved",
+    "date_created": "2025-06-06T07:56:56.176Z",
+    "date_updated": "2025-06-06T07:56:56.176Z",
+    "master": 2,
+    "appointment_date": "2025-06-11T13:00:00Z",
+    "services": [
+      3,
+      9
+    ]
+  }
+},
+{
+  "model": "core.order",
+  "pk": 7,
+  "fields": {
+    "client_name": "ТелегаТест12",
+    "phone": "+7 (999) 621-45-47",
+    "comment": "1111",
+    "status": "not_approved",
+    "date_created": "2025-06-06T08:00:26.365Z",
+    "date_updated": "2025-06-06T08:00:26.365Z",
+    "master": 4,
+    "appointment_date": "2025-06-09T14:03:00Z",
+    "services": [
+      5
+    ]
+  }
+},
+{
+  "model": "core.order",
+  "pk": 8,
+  "fields": {
+    "client_name": "ТелегаТест15",
+    "phone": "+7 (961-)333-20-15",
+    "comment": "паапв",
+    "status": "not_approved",
+    "date_created": "2025-06-06T08:09:02.016Z",
+    "date_updated": "2025-06-06T08:09:02.016Z",
+    "master": 5,
+    "appointment_date": "2025-06-12T11:08:00Z",
+    "services": [
+      7
+    ]
+  }
+},
+{
+  "model": "core.order",
+  "pk": 9,
+  "fields": {
+    "client_name": "ТелегаТест19",
+    "phone": "+7 (999) 621-45-47",
+    "comment": "sass",
+    "status": "not_approved",
+    "date_created": "2025-06-06T08:25:15.625Z",
+    "date_updated": "2025-06-06T08:25:15.625Z",
+    "master": 2,
+    "appointment_date": "2025-06-09T05:27:00Z",
+    "services": [
+      6
+    ]
+  }
+},
+{
+  "model": "core.order",
+  "pk": 10,
+  "fields": {
+    "client_name": "ТелегаТест20",
+    "phone": "+7 (999) 621-45-47",
+    "comment": "Работает или нет?",
+    "status": "not_approved",
+    "date_created": "2025-06-06T12:05:36.725Z",
+    "date_updated": "2025-06-06T12:05:36.725Z",
+    "master": 2,
+    "appointment_date": "2025-06-09T15:05:00Z",
+    "services": [
+      3,
+      4
+    ]
+  }
+},
+{
+  "model": "core.order",
+  "pk": 11,
+  "fields": {
+    "client_name": "Константин",
+    "phone": "+7 (999) 621-4547",
+    "comment": "посмотрим на красоту!!!",
+    "status": "not_approved",
+    "date_created": "2025-06-06T12:14:42.702Z",
+    "date_updated": "2025-06-06T12:14:42.702Z",
+    "master": 4,
+    "appointment_date": "2025-06-07T08:15:00Z",
+    "services": [
+      5,
+      8,
+      2
+    ]
+  }
+},
+{
+  "model": "core.order",
+  "pk": 12,
+  "fields": {
+    "client_name": "Константин тст1",
+    "phone": "+7 (999) 621-45-47",
+    "comment": "ыыуыу",
+    "status": "not_approved",
+    "date_created": "2025-06-06T12:52:43.436Z",
+    "date_updated": "2025-06-06T12:52:43.436Z",
+    "master": 3,
+    "appointment_date": "2025-06-06T15:52:00Z",
+    "services": []
+  }
+},
+{
+  "model": "core.order",
+  "pk": 13,
+  "fields": {
+    "client_name": "Константин тст1",
+    "phone": "+7 (999) 621-45-47",
+    "comment": "ыыуыу",
+    "status": "not_approved",
+    "date_created": "2025-06-06T13:02:09.090Z",
+    "date_updated": "2025-06-06T13:02:09.090Z",
+    "master": 3,
+    "appointment_date": "2025-06-06T15:52:00Z",
+    "services": [
+      5,
+      4,
+      10,
+      1,
+      8,
+      2
+    ]
+  }
+},
+{
+  "model": "core.order",
+  "pk": 14,
+  "fields": {
+    "client_name": "Константин ncn12",
+    "phone": "+7 (961-)333-52-55",
+    "comment": "sdf",
+    "status": "not_approved",
+    "date_created": "2025-06-06T20:26:53.833Z",
+    "date_updated": "2025-06-06T20:26:53.833Z",
+    "master": 3,
+    "appointment_date": "2025-06-08T02:29:00Z",
+    "services": []
+  }
+},
+{
+  "model": "core.order",
+  "pk": 15,
+  "fields": {
+    "client_name": "Константин ncn122",
+    "phone": "+7 (961-)333-52-55",
+    "comment": "sdfqwefe",
+    "status": "not_approved",
+    "date_created": "2025-06-06T20:29:24.692Z",
+    "date_updated": "2025-06-06T20:29:24.692Z",
+    "master": 3,
+    "appointment_date": "2025-06-08T02:29:00Z",
+    "services": [
+      5,
+      4,
+      10,
+      1,
+      8
+    ]
+  }
+},
+{
+  "model": "core.order",
+  "pk": 16,
+  "fields": {
+    "client_name": "ТелегаТест33",
+    "phone": "+7 (961-)333-20-15",
+    "comment": "",
+    "status": "not_approved",
+    "date_created": "2025-07-16T19:38:37.737Z",
+    "date_updated": "2025-07-16T19:38:37.737Z",
+    "master": 4,
+    "appointment_date": "2025-07-17T22:38:00Z",
+    "services": [
+      5
+    ]
+  }
+},
+{
+  "model": "core.master",
+  "pk": 1,
+  "fields": {
+    "first_name": "Эльдар 'Бритва'",
+    "last_name": "Рязанов",
+    "photo": "images/masters/Эльдар_Бритва_Рязанов.webp",
+    "phone": "+7 (495) 666-42-00",
+    "address": "Улица Пельменная, 13",
+    "experience": 5,
+    "is_active": true,
+    "services": [
+      3,
+      7,
+      5,
+      9,
+      10,
+      6,
+      1
+    ]
+  }
+},
+{
+  "model": "core.master",
+  "pk": 2,
+  "fields": {
+    "first_name": "Зоя 'Ножницы'",
+    "last_name": "Космодемьянская",
+    "photo": "images/masters/Зоя_Ножницы_Космодемьянская.webp",
+    "phone": "+7 (812) 255-56-22",
+    "address": "Проспект Непросыпающихся, 7",
+    "experience": 10,
+    "is_active": true,
+    "services": [
+      3,
+      7,
+      5,
+      4,
+      9,
+      10,
+      6,
+      1,
+      8,
+      2
+    ]
+  }
+},
+{
+  "model": "core.master",
+  "pk": 3,
+  "fields": {
+    "first_name": "Борис 'Фен'",
+    "last_name": "Пастернак",
+    "photo": "images/masters/Борис_Фен_Пастернак.webp",
+    "phone": "+7 (343) 007-00-07",
+    "address": "Переулок Котиковый, 4",
+    "experience": 3,
+    "is_active": true,
+    "services": [
+      5,
+      4,
+      10,
+      1,
+      8,
+      2
+    ]
+  }
+},
+{
+  "model": "core.master",
+  "pk": 4,
+  "fields": {
+    "first_name": "Иннокентий 'Лак'",
+    "last_name": "Смоктуновский",
+    "photo": "images/masters/Иннокентий_Лак_Смоктуновский.webp",
+    "phone": "+7 (383) 228-14-88",
+    "address": "Улица Вечного Ремонта, 25",
+    "experience": 2,
+    "is_active": true,
+    "services": [
+      5,
+      8,
+      2
+    ]
+  }
+},
+{
+  "model": "core.master",
+  "pk": 5,
+  "fields": {
+    "first_name": "Раиса 'Бигуди'",
+    "last_name": "Горбачёва",
+    "photo": "images/masters/Раиса_Бигуди_Горбачёва.webp",
+    "phone": "+7 (351) 999-66-42",
+    "address": "Площадь Гриль-мастеров, 1",
+    "experience": 6,
+    "is_active": true,
+    "services": [
+      7,
+      5,
+      4,
+      9,
+      10,
+      6,
+      1,
+      8,
+      2
+    ]
+  }
+},
+{
+  "model": "core.service",
+  "pk": 1,
+  "fields": {
+    "name": "Стрижка под 'Горшок'",
+    "description": "Стрижка под 'Горшок' для всех!",
+    "price": "599.95",
+    "duration": 15,
+    "is_popular": true,
+    "image": ""
+  }
+},
+{
+  "model": "core.service",
+  "pk": 2,
+  "fields": {
+    "name": "Укладка 'Взрыв на макаронной фабрике'",
+    "description": "Укладка 'Взрыв на макаронной фабрике' Придаст вам незабываемый образ!",
+    "price": "2300.00",
+    "duration": 90,
+    "is_popular": false,
+    "image": ""
+  }
+},
+{
+  "model": "core.service",
+  "pk": 3,
+  "fields": {
+    "name": "Королевское бритье опасной бритвой",
+    "description": "Будьте королём!",
+    "price": "1199.99",
+    "duration": 38,
+    "is_popular": true,
+    "image": ""
+  }
+},
+{
+  "model": "core.service",
+  "pk": 4,
+  "fields": {
+    "name": "Окрашивание 'Жизнь в розовом цвете'",
+    "description": "Окрашивание 'Жизнь в розовом цвете' делает вас неотразимо розовой!",
+    "price": "899.90",
+    "duration": 70,
+    "is_popular": false,
+    "image": ""
+  }
+},
+{
+  "model": "core.service",
+  "pk": 5,
+  "fields": {
+    "name": "Мытье головы 'Душ впечатлений'",
+    "description": "Ваша голова испытает настоящий 'Душ впечатлений'",
+    "price": "545.55",
+    "duration": 19,
+    "is_popular": true,
+    "image": ""
+  }
+},
+{
+  "model": "core.service",
+  "pk": 6,
+  "fields": {
+    "name": "Стрижка бороды 'Боярин'",
+    "description": "Мы сделаем из вас настоящего Боярина!",
+    "price": "1500.00",
+    "duration": 45,
+    "is_popular": false,
+    "image": ""
+  }
+},
+{
+  "model": "core.service",
+  "pk": 7,
+  "fields": {
+    "name": "Массаж головы 'Озарение'",
+    "description": "Массаж головы 'Озарение' и приятно и полезно!",
+    "price": "867.22",
+    "duration": 32,
+    "is_popular": true,
+    "image": ""
+  }
+},
+{
+  "model": "core.service",
+  "pk": 8,
+  "fields": {
+    "name": "Укладка 'Ветер в голове'",
+    "description": "Укладка 'Ветер в голове' Только для блондинок!",
+    "price": "1432.55",
+    "duration": 120,
+    "is_popular": false,
+    "image": ""
+  }
+},
+{
+  "model": "core.service",
+  "pk": 9,
+  "fields": {
+    "name": "Плетение косичек 'Викинг'",
+    "description": "Такие косички только для суровых мужчин!",
+    "price": "1100.00",
+    "duration": 75,
+    "is_popular": false,
+    "image": ""
+  }
+},
+{
+  "model": "core.service",
+  "pk": 10,
+  "fields": {
+    "name": "Полировка лысины до блеска",
+    "description": "Благодаря нам вы будете блестеть ярче любого дискошара!",
+    "price": "600.00",
+    "duration": 20,
+    "is_popular": true,
+    "image": ""
+  }
+},
+{
+  "model": "core.service",
+  "pk": 11,
+  "fields": {
+    "name": "Шугаринг сахаром",
+    "description": "Для любителей особо острых ощющений",
+    "price": "602.32",
+    "duration": 54,
+    "is_popular": false,
+    "image": "images/services/photo-1530435460869-d13625c69bbf_copy_1.png"
+  }
+},
+{
+  "model": "core.review",
+  "pk": 1,
+  "fields": {
+    "text": "Борис отличный мастер!",
+    "client_name": "Варвара",
+    "master": 3,
+    "photo": "",
+    "created_at": "2025-04-27T14:59:04.162Z",
+    "rating": 5,
+    "is_published": true
+  }
+},
+{
+  "model": "core.review",
+  "pk": 2,
+  "fields": {
+    "text": "Гады порезали меня",
+    "client_name": "Саня",
+    "master": 5,
+    "photo": "",
+    "created_at": "2025-04-27T14:59:44.694Z",
+    "rating": 1,
+    "is_published": true
+  }
+},
+{
+  "model": "core.review",
+  "pk": 3,
+  "fields": {
+    "text": "Спасибо за чудесную укладку!",
+    "client_name": "Валя",
+    "master": 2,
+    "photo": "images/reviews/orig.webp",
+    "created_at": "2025-04-27T15:00:10.861Z",
+    "rating": 5,
+    "is_published": true
+  }
+},
+{
+  "model": "core.review",
+  "pk": 4,
+  "fields": {
+    "text": "А классно сделано!!!!",
+    "client_name": "Константин Test1",
+    "master": 3,
+    "photo": "images/reviews/photo-1530435460869-d13625c69bbf_copy_2.png",
+    "created_at": "2025-06-04T16:23:13.201Z",
+    "rating": 5,
+    "is_published": true
+  }
+},
+{
+  "model": "core.review",
+  "pk": 5,
+  "fields": {
+    "text": "test2",
+    "client_name": "Константин Test2",
+    "master": 5,
+    "photo": "",
+    "created_at": "2025-06-04T16:58:02.976Z",
+    "rating": 5,
+    "is_published": false
+  }
+},
+{
+  "model": "core.review",
+  "pk": 6,
+  "fields": {
+    "text": "fgfbngr",
+    "client_name": "ТелегаТест3",
+    "master": 1,
+    "photo": "",
+    "created_at": "2025-06-05T09:43:10.982Z",
+    "rating": 5,
+    "is_published": false
+  }
+},
+{
+  "model": "core.review",
+  "pk": 7,
+  "fields": {
+    "text": "ух ты какая пусечка я бы тебя хотел отыметь!",
+    "client_name": "Константин",
+    "master": 3,
+    "photo": "",
+    "created_at": "2025-07-16T18:47:07.947Z",
+    "rating": 5,
+    "is_published": false
+  }
+},
+{
+  "model": "core.review",
+  "pk": 8,
+  "fields": {
+    "text": "Вах какая цыпочка я бы тебя поимел!",
+    "client_name": "Константин",
+    "master": 2,
+    "photo": "",
+    "created_at": "2025-07-16T19:24:31.410Z",
+    "rating": 5,
+    "is_published": false
+  }
+},
+{
+  "model": "core.review",
+  "pk": 9,
+  "fields": {
+    "text": "Спасибо! всё классно сделали!",
+    "client_name": "Сергей",
+    "master": 1,
+    "photo": "",
+    "created_at": "2025-07-16T19:30:26.155Z",
+    "rating": 5,
+    "is_published": true
+  }
+},
+{
+  "model": "core.review",
+  "pk": 10,
+  "fields": {
+    "text": "Спасибо! всё классно сделали!",
+    "client_name": "Сергей",
+    "master": 1,
+    "photo": "",
+    "created_at": "2025-07-16T19:37:33.544Z",
+    "rating": 5,
+    "is_published": true
+  }
+},
+{
+  "model": "core.review",
+  "pk": 11,
+  "fields": {
+    "text": "вах хорошо!",
+    "client_name": "Михаил",
+    "master": 4,
+    "photo": "",
+    "created_at": "2025-07-16T19:41:45.192Z",
+    "rating": 5,
+    "is_published": true
+  }
+},
+{
+  "model": "core.review",
+  "pk": 12,
+  "fields": {
+    "text": "КАК ЖЕ Я ВАС ВСЕХ НЕНАВИЖУ!!!! УБЬЮ ВСЕХ! МОЛИТЕСЬ Я ПРИЙДУ ЗА ВАМИ БЕЛЫЕ УБЛЮДКИ!",
+    "client_name": "ТелегаТест33",
+    "master": 4,
+    "photo": "",
+    "created_at": "2025-07-16T19:43:53.456Z",
+    "rating": 1,
+    "is_published": false
+  }
+},
+{
+  "model": "core.review",
+  "pk": 13,
+  "fields": {
+    "text": "Отлично постриг мастер своего дела!",
+    "client_name": "ТелегаТест33",
+    "master": 3,
+    "photo": "",
+    "created_at": "2025-07-16T19:45:24.160Z",
+    "rating": 5,
+    "is_published": true
+  }
+},
+{
+  "model": "core.review",
+  "pk": 14,
+  "fields": {
+    "text": "Отлично постриг мастер своего дела!",
+    "client_name": "ТелегаТест33",
+    "master": 3,
+    "photo": "",
+    "created_at": "2025-07-16T19:45:55.574Z",
+    "rating": 5,
+    "is_published": true
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2025-04-27T14:40:37.553Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "core",
+      "service"
+    ],
+    "object_id": "1",
+    "object_repr": "Стрижка под 'Горшок' - 599.95 руб.",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2025-04-27T14:41:20.812Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "core",
+      "service"
+    ],
+    "object_id": "2",
+    "object_repr": "Укладка 'Взрыв на макаронной фабрике' - 2300 руб.",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2025-04-27T14:42:12.822Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "core",
+      "service"
+    ],
+    "object_id": "3",
+    "object_repr": "Королевское бритье опасной бритвой - 1199.99 руб.",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2025-04-27T14:43:17.107Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "core",
+      "service"
+    ],
+    "object_id": "4",
+    "object_repr": "Окрашивание 'Жизнь в розовом цвете' - 899.9 руб.",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2025-04-27T14:44:19.665Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "core",
+      "service"
+    ],
+    "object_id": "5",
+    "object_repr": "Мытье головы 'Душ впечатлений' - 545.55 руб.",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2025-04-27T14:45:03.387Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "core",
+      "service"
+    ],
+    "object_id": "6",
+    "object_repr": "Стрижка бороды 'Боярин' - 1500 руб.",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2025-04-27T14:46:09.538Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "core",
+      "service"
+    ],
+    "object_id": "7",
+    "object_repr": "Массаж головы 'Озарение' - 867.22 руб.",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2025-04-27T14:46:59.426Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "core",
+      "service"
+    ],
+    "object_id": "8",
+    "object_repr": "Укладка 'Ветер в голове' - 1432.55 руб.",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2025-04-27T14:47:50.887Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "core",
+      "service"
+    ],
+    "object_id": "9",
+    "object_repr": "Плетение косичек 'Викинг' - 1100 руб.",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2025-04-27T14:48:43.866Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "core",
+      "service"
+    ],
+    "object_id": "10",
+    "object_repr": "Полировка лысины до блеска - 600 руб.",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2025-04-27T14:49:54.897Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "core",
+      "master"
+    ],
+    "object_id": "1",
+    "object_repr": "Эльдар 'Бритва' Рязанов",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2025-04-27T14:50:58.221Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "core",
+      "master"
+    ],
+    "object_id": "2",
+    "object_repr": "Зоя 'Ножницы' Космодемьянская",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2025-04-27T14:52:06.949Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "core",
+      "master"
+    ],
+    "object_id": "3",
+    "object_repr": "Борис 'Фен' Пастернак",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2025-04-27T14:52:50.327Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "core",
+      "master"
+    ],
+    "object_id": "4",
+    "object_repr": "Иннокентий 'Лак' Смоктуновский",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2025-04-27T14:54:00.780Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "core",
+      "master"
+    ],
+    "object_id": "5",
+    "object_repr": "Раиса 'Бигуди' Горбачёва",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2025-04-27T14:57:18.986Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "core",
+      "order"
+    ],
+    "object_id": "1",
+    "object_repr": "Заказ №1 от Валя",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2025-04-27T14:57:59.233Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "core",
+      "order"
+    ],
+    "object_id": "2",
+    "object_repr": "Заказ №2 от Константин",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2025-04-27T14:58:25.229Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "core",
+      "order"
+    ],
+    "object_id": "3",
+    "object_repr": "Заказ №3 от Сергей",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2025-04-27T14:59:04.164Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "core",
+      "review"
+    ],
+    "object_id": "1",
+    "object_repr": "Отзыв от Варвара на Борис 'Фен' Пастернак",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2025-04-27T14:59:44.696Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "core",
+      "review"
+    ],
+    "object_id": "2",
+    "object_repr": "Отзыв от Саня на Раиса 'Бигуди' Горбачёва",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2025-04-27T15:00:10.864Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "core",
+      "review"
+    ],
+    "object_id": "3",
+    "object_repr": "Отзыв от Валя на Зоя 'Ножницы' Космодемьянская",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2025-05-04T10:35:30.940Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "core",
+      "master"
+    ],
+    "object_id": "3",
+    "object_repr": "Борис 'Фен' Пастернак",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Photo\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2025-05-04T10:38:11.654Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "core",
+      "master"
+    ],
+    "object_id": "2",
+    "object_repr": "Зоя 'Ножницы' Космодемьянская",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Photo\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2025-05-04T10:38:28.188Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "core",
+      "master"
+    ],
+    "object_id": "4",
+    "object_repr": "Иннокентий 'Лак' Смоктуновский",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Photo\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2025-05-04T10:38:48.541Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "core",
+      "master"
+    ],
+    "object_id": "5",
+    "object_repr": "Раиса 'Бигуди' Горбачёва",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Photo\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2025-05-04T10:39:02.876Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "core",
+      "master"
+    ],
+    "object_id": "1",
+    "object_repr": "Эльдар 'Бритва' Рязанов",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Photo\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2025-05-11T08:49:56.962Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "core",
+      "master"
+    ],
+    "object_id": "4",
+    "object_repr": "Иннокентий 'Лак' Смоктуновский",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0410\\u043a\\u0442\\u0438\\u0432\\u0435\\u043d\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2025-05-11T08:55:36.411Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "core",
+      "master"
+    ],
+    "object_id": "6",
+    "object_repr": "тест тестович",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2025-05-11T08:56:03.965Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "core",
+      "master"
+    ],
+    "object_id": "6",
+    "object_repr": "тест тестович",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2025-05-11T09:17:32.303Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "core",
+      "review"
+    ],
+    "object_id": "2",
+    "object_repr": "Отзыв от Саня на Раиса 'Бигуди' Горбачёва",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u043f\\u0443\\u0431\\u043b\\u0438\\u043a\\u043e\\u0432\\u0430\\u043d\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 31,
+  "fields": {
+    "action_time": "2025-05-11T09:20:56.335Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "core",
+      "review"
+    ],
+    "object_id": "3",
+    "object_repr": "Отзыв от Валя на Зоя 'Ножницы' Космодемьянская",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0424\\u043e\\u0442\\u043e\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 32,
+  "fields": {
+    "action_time": "2025-06-04T16:28:19.955Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "core",
+      "review"
+    ],
+    "object_id": "4",
+    "object_repr": "Отзыв от Константин Test1 на Борис 'Фен' Пастернак",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u043f\\u0443\\u0431\\u043b\\u0438\\u043a\\u043e\\u0432\\u0430\\u043d\"]}}]"
+  }
+}
+]
