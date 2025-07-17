@@ -41,8 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'widget_tweaks',
     'django_extensions',
     "core",
+    "Users",
 ]
 
 MIDDLEWARE = [
@@ -126,6 +128,8 @@ STATIC_URL = 'static/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
+AUTH_USER_MODEL = 'Users.User'
+
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
@@ -151,3 +155,10 @@ MISTRAL_MODERATIONS_GRADES = {
     "law": 0.1,  # закон
     "pii": 0.1,  # личная информация
 }
+
+# Настройка маршрут для авторизации
+LOGIN_URL = "users:login"  # Имя маршрута для страницы входа
+LOGIN_REDIRECT_URL = (
+    "landing"  # Куда перенаправлять после успешного входа (если не указано в LoginView)
+)
+LOGOUT_REDIRECT_URL = "landing"  # Куда перенаправлять после выхода (используется LogoutView, если next_page не задан)
