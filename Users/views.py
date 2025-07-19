@@ -8,7 +8,7 @@ from django.urls import reverse_lazy
 from django.contrib import messages
 from .forms import UserRegisterForm, UserLoginForm
 from django.shortcuts import redirect, render, get_object_or_404
-# from .models import User
+from .models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash
 # Импорт служебных вью для сброса и восстановления пароля

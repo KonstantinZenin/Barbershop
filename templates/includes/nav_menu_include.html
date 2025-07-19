@@ -33,7 +33,7 @@
                     <span class="nav-link">Привет, {{ user.username }}!</span>
                 </li>
                 <li class="nav-item">
-                    <form action="{% url 'Users:logout' %}" method="post" class="d-inline">
+                    <form action="{% url 'users:logout' %}" method="post" class="d-inline">
                         {% csrf_token %}
                         <button type="submit" class="btn quantum-btn-sm">
                             <i class="fas fa-power-off me-1"></i>Выйти
@@ -42,10 +42,10 @@
                 </li>
                 {% else %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'Users:login' %}">Войти</a>
+                    <a class="nav-link" href="{% url 'users:login' %}">Войти</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'Users:registerUser' %}">Зарегистрироваться</a>
+                    <a class="nav-link" href="{% url 'users:registerUser' %}">Зарегистрироваться</a>
                 </li>
                 {% endif %}
                 

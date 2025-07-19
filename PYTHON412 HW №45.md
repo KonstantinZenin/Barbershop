@@ -55,7 +55,7 @@ hw_theme:
 >### `UserLoginForm`
 >
 >Эта форма должна наследоваться от `django.contrib.auth.forms.AuthenticationForm`. В её методе `__init__` настройте виджеты полей `username` и `password`. Добавьте классы Bootstrap (`form-control`) и соответствующие плейсхолдеры для улучшения внешнего вида полей.
->
+>*
 >### `UserRegisterForm`
 >
 >Эта форма должна наследоваться от `django.contrib.auth.forms.UserCreationForm`. Добавьте в неё поле `email` типа `forms.EmailField`, настройте его виджет и сделайте обязательным. В классе `Meta` укажите `model = get_user_model()` и включите поля `username` и `email`. В методе `__init__` настройте виджеты полей `username`, `password1` и `password2`, добавив классы Bootstrap и плейсхолдеры. Переопределите метод `save`, чтобы корректно сохранять поле `email` для создаваемого пользователя.

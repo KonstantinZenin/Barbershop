@@ -6,6 +6,16 @@
     <div class="row justify-content-center">
         <div class="col-md-6 quantum-card p-4">
             <h2 class="text-center mb-4 glow-text"><i class="fas fa-sign-in-alt me-2"></i>Квантовый Вход</h2>
+            
+            <!-- Блок для системных сообщений -->
+            {% if messages %}
+            <div class="alert alert-danger mb-4">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+            {% endif %}
+            
             <form method="post" class="auth-form">
                 {% csrf_token %}
                 <div class="mb-3">
@@ -15,6 +25,15 @@
                 <div class="mb-3">
                     {{ form.password.label_tag }}
                     {{ form.password|add_class:"form-control quantum-input" }}
+                    
+                    <!-- Вывод ошибок для поля пароля -->
+                    {% if form.password.errors %}
+                    <div class="text-danger mt-2">
+                        {% for error in form.password.errors %}
+                            {{ error }}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
                 </div>
                 <button type="submit" class="btn quantum-btn btn-block mt-3">
                     <i class="fas fa-atom me-2"></i>Войти в Систему
@@ -22,7 +41,7 @@
             </form>
             <div class="mt-4 text-center tech-fantasy-font">
                 <p class="mb-2">Ещё не в квантовом поле?</p>
-                <a href="{% url 'Users:registerUser' %}" class="quantum-link">
+                <a href="{% url 'users:registerUser' %}" class="quantum-link">
                     <i class="fas fa-user-plus me-1"></i>Активировать протокол регистрации
                 </a>
             </div>

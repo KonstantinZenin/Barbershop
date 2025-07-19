@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'django_extensions',
     "core",
-    "Users",
+    "users",
 ]
 
 MIDDLEWARE = [
@@ -128,7 +128,7 @@ STATIC_URL = 'static/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
-AUTH_USER_MODEL = 'Users.User'
+AUTH_USER_MODEL = 'users.User'
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",

@@ -12,7 +12,12 @@ class User(AbstractUser):
     first_name = None
     last_name = None
 
-    email = models.EmailField(unique=True) # Делаем email уникальным и обязательным для логина
+    email = models.EmailField(
+        unique=True,
+        error_messages={
+            'unique': 'Пользователь с таким email уже существует.'
+        }
+    ) # Делаем email уникальным и обязательным для логина
     
     avatar = models.ImageField(
         upload_to='users/avatars/', 
