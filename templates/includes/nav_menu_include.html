@@ -50,18 +50,34 @@
                 {% endif %}
                 
                 {% if user.is_staff %}
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'orders_list' %}">Список заказов</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle quantum-admin-toggle" href="#" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-cog quantum-spin"></i> Администрирование
+                    </a>
+                    <ul class="dropdown-menu quantum-dropdown" aria-labelledby="adminDropdown">
+                        <li>
+                            <a class="dropdown-item" href="{% url 'orders_list' %}">
+                                <i class="fas fa-list me-1"></i> Заказы
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'service_create' %}">
+                                <i class="fas fa-plus-circle me-1"></i> Добавить услугу
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'services_list' %}">
+                                <i class="fas fa-scissors me-1"></i> Услуги
+                            </a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'admin:index' %}">
+                                <i class="fas fa-user-cog me-1"></i> Админка
+                            </a>
+                        </li>
+                    </ul>
                 </li>
-
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'service_create' %}">Добавить услугу</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'admin:index' %}">Админка</a>
-                </li>
-
                 {% endif %}
             </ul>
         </div>

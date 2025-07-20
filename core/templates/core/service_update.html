@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container quantum-form-container">
+    <h1 class="glow-text">{{ title }}</h1>
+    
+    <form method="post" enctype="multipart/form-data" class="quantum-form">
+        {% csrf_token %}
+        
+        <div class="quantum-form-grid">
+            <div class="quantum-form-column">
+                <div class="quantum-form-group">
+                    <label for="id_name">Название услуги</label>
+                    {{ form.name }}
+                    {% if form.name.errors %}
+                    <div class="quantum-form-error">{{ form.name.errors }}</div>
+                    {% endif %}
+                </div>
+                
+                <div class="quantum-form-group">
+                    <label for="id_price">Цена (руб.)</label>
+                    {{ form.price }}
+                    {% if form.price.errors %}
+                    <div class="quantum-form-error">{{ form.price.errors }}</div>
+                    {% endif %}
+                </div>
+                
+                <div class="quantum-form-group">
+                    <label for="id_duration">Длительность (мин.)</label>
+                    {{ form.duration }}
+                    {% if form.duration.errors %}
+                    <div class="quantum-form-error">{{ form.duration.errors }}</div>
+                    {% endif %}
+                </div>
+                
+                <div class="quantum-form-group quantum-checkbox-group">
+                    {{ form.is_popular }}
+                    <label for="id_is_popular">Популярная услуга</label>
+                </div>
+            </div>
+            
+            <div class="quantum-form-column">
+                <div class="quantum-form-group">
+                    <label for="id_image">Изображение услуги</label>
+                    {% if form.instance.image %}
+                    <div class="quantum-image-preview">
+                        <img src="{{ form.instance.image.url }}" alt="Текущее изображение">
+                    </div>
+                    {% endif %}
+                    {{ form.image }}
+                    {% if form.image.errors %}
+                    <div class="quantum-form-error">{{ form.image.errors }}</div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+        <div class="quantum-form-group">
+            <label for="id_description">Описание услуги</label>
+            {{ form.description }}
+            {% if form.description.errors %}
+            <div class="quantum-form-error">{{ form.description.errors }}</div>
+            {% endif %}
+        </div>
+        
+        <div class="quantum-form-actions">
+            <button type="submit" class="quantum-button">
+                <i class="bi bi-save"></i> Сохранить квантовые изменения
+            </button>
+            <a href="{% url 'services_list' %}" class="quantum-button quantum-button-cancel">
+                <i class="bi bi-x-circle"></i> Отмена
+            </a>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -55,6 +55,7 @@ class Master(models.Model):
     experience = models.PositiveBigIntegerField(verbose_name="Стаж", help_text="Опыт работы в годах")
     services = models.ManyToManyField("Service", verbose_name="Услуги", related_name="masters")
     is_active = models.BooleanField(default=True, verbose_name="Активен")
+    view_count = models.PositiveIntegerField(default=0, verbose_name="Количество просмотров")
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"

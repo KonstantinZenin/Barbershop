@@ -24,7 +24,7 @@
                         name="search_in" 
                         value="name" 
                         id="search_name" 
-                        {% if 'name' in request.GET.search_in or not request.GET %}checked{% endif %}>
+                        {% if 'name' in selected_search_fields %}checked{% endif %}>
                     <label class="form-check-label glow-text" for="search_name">
                         <i class="fas fa-user quantum-icon me-2"></i>По имени
                     </label>
@@ -37,7 +37,7 @@
                         name="search_in" 
                         value="phone" 
                         id="search_phone"
-                        {% if 'phone' in request.GET.search_in %}checked{% endif %}>
+                        {% if 'phone' in selected_search_fields %}checked{% endif %}>
                     <label class="form-check-label glow-text" for="search_phone">
                         <i class="fas fa-phone quantum-icon me-2"></i>По телефону
                     </label>
@@ -50,7 +50,7 @@
                         name="search_in" 
                         value="comment" 
                         id="search_comment"
-                        {% if 'comment' in request.GET.search_in %}checked{% endif %}>
+                        {% if 'comment' in selected_search_fields %}checked{% endif %}>
                     <label class="form-check-label glow-text" for="search_comment">
                         <i class="fas fa-comment quantum-icon me-2"></i>По комментарию
                     </label>

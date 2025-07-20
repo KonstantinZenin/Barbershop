@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container quantum-detail">
+    <h1 class="glow-text">{{ title }}</h1>
+    <div class="quantum-card">
+        <div class="quantum-master-header">
+            {% if master.photo %}
+            <img src="{{ master.photo.url }}" class="quantum-master-photo">
+            {% else %}
+            <div class="quantum-master-photo-placeholder">
+                <i class="bi bi-person-circle"></i>
+            </div>
+            {% endif %}
+            <div class="quantum-master-info">
+                <h2>{{ master.first_name }} {{ master.last_name }}</h2>
+                <p><i class="bi bi-award"></i> Стаж: {{ master.experience }} лет</p>
+                <p><i class="bi bi-eye"></i> Просмотров: {{ master.view_count }}</p>
+                <p><i class="bi bi-telephone"></i> {{ master.phone }}</p>
+                <p><i class="bi bi-geo-alt"></i> {{ master.address }}</p>
+            </div>
+        </div>
+
+        <div class="quantum-section">
+            <h3 class="quantum-section-title glow-text-sub">Квантовые услуги мастера</h3>
+            <ul class="quantum-services-list">
+                {% for service in master.services.all %}
+                <li class="quantum-service-item">
+                    <i class="bi bi-scissors"></i> {{ service.name }} - {{ service.price }} руб.
+                </li>
+                {% empty %}
+                <li class="quantum-service-item">У мастера пока нет услуг</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="quantum-section">
+            <h3 class="quantum-section-title glow-text-sub">Квантовые отзывы</h3>
+            <div class="quantum-reviews-grid">
+                {% for review in master.review_set.all %}
+                    {% if review.is_published %}
+                    <div class="quantum-review-card mb-3">
+                        <div class="quantum-review-header">
+                            <span class="quantum-review-name">{{ review.client_name }}</span>
+                            <span class="quantum-review-rating">
+                                {% for i in "12345" %}
+                                    {% if forloop.counter <= review.rating %}
+                                        <i class="bi bi-star-fill"></i>
+                                    {% else %}
+                                        <i class="bi bi-star"></i>
+                                    {% endif %}
+                                {% endfor %}
+                            </span>
+                        </div>
+                        <div class="quantum-review-body">
+                            <p class="quantum-review-text">{{ review.text }}</p>
+                            {% if review.photo %}
+                            <img src="{{ review.photo.url }}" class="quantum-review-photo">
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endif %}
+                {% empty %}
+                <p class="quantum-no-reviews">Пока нет опубликованных отзывов</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
