@@ -11,8 +11,21 @@ from django.shortcuts import redirect, render, get_object_or_404
 from .models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash
+from django.views.generic import TemplateView
+from django.contrib.auth.forms import PasswordChangeForm
 # Импорт служебных вью для сброса и восстановления пароля
 from django.contrib.auth.views import PasswordResetView, PasswordResetConfirmView, PasswordResetDoneView, PasswordResetCompleteView, PasswordChangeView
+
+class ProfileView(LoginRequiredMixin, TemplateView):
+    """Представление личного кабинета пользователя"""
+    template_name = "users/profile.html"
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Поскольку представление защищено LoginRequiredMixin, пользователь всегда аутентифицирован
+        # Исправление для Pylance: явное приведение типа
+        context['password_change_form'] = PasswordChangeForm(user=self.request.user)  # type: ignore
+        return context
 
 class UserRegisterView(CreateView):
     """
@@ -30,15 +43,16 @@ class UserRegisterView(CreateView):
         return super().dispatch(request, *args, **kwargs)
 
     def form_valid(self, form):
-        """Обрабатывает валидную форму: сохраняет пользователя и выполняет автоматический вход."""
-        response = super().form_valid(form)
-        user = form.save()  # Получаем сохраненного пользователя из формы
-        login(self.request, user)
+        """Обрабатывает валидную форму: сохраняет пользователя и выполняет вход"""
+        user = form.save()
+        # Автоматическая аутентификация с указанием бэкенда
+        from django.contrib.auth import login
+        login(self.request, user, backend='django.contrib.auth.backends.ModelBackend')
         messages.success(
             self.request,
             f"Добро пожаловать, {user.username}! Регистрация прошла успешно.",
         )
-        return response
+        return redirect('landing')
 
     def form_invalid(self, form):
         """Обрабатывает невалидную форму: выводит сообщение об ошибке."""

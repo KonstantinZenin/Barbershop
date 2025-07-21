@@ -11,15 +11,21 @@ class UserLoginForm(AuthenticationForm):
         """Инициализация формы входа: настройка полей."""
         super().__init__(*args, **kwargs)
         # Кастомизация поля username
+        self.fields['username'].label = "Email или имя пользователя"
         self.fields['username'].widget.attrs.update({
             'class': 'form-control mb-2',
-            'placeholder': 'Имя пользователя или email'
+            'placeholder': 'Введите email или имя пользователя'
         })
         # Кастомизация поля password
         self.fields['password'].widget.attrs.update({
             'class': 'form-control',
-            'placeholder': 'Пароль'
+            'placeholder': 'Введите пароль'
         })
+        
+        # Обновление сообщений об ошибках
+        self.error_messages['invalid_login'] = (
+            "Пожалуйста, введите правильные email/имя пользователя и пароль."
+        )
 
 
 class UserRegisterForm(UserCreationForm):
@@ -103,4 +109,3 @@ class UserRegisterForm(UserCreationForm):
         if commit:
             user.save()
         return user
-

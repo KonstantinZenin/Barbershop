@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 quantum-card p-4">
+            <h2 class="text-center mb-4 glow-text">
+                <i class="fas fa-user-astronaut me-2"></i>Личный кабинет
+            </h2>
+            
+            <!-- Информация о пользователе -->
+            <div class="mb-4 p-3 quantum-section">
+                <h4 class="glow-text"><i class="fas fa-id-card me-2"></i>Ваши данные</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>Имя пользователя:</strong> {{ user.username }}</p>
+                        <p><strong>Email:</strong> {{ user.email }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        {% if user.phone %}
+                        <p><strong>Телефон:</strong> {{ user.phone }}</p>
+                        {% endif %}
+                        <p><strong>Дата регистрации:</strong> {{ user.date_joined|date:"d.m.Y" }}</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Форма смены пароля -->
+            <div class="p-3 quantum-section">
+                <h4 class="glow-text"><i class="fas fa-key me-2"></i>Смена пароля</h4>
+                <form method="post" action="{% url 'users:password_change' %}">
+                    {% csrf_token %}
+                    {{ password_change_form.non_field_errors }}
+                    
+                    <div class="mb-3">
+                        {{ password_change_form.old_password.label_tag }}
+                        <div class="input-group">
+                            {{ password_change_form.old_password|add_class:"form-control" }}
+                            <button class="btn btn-outline-secondary toggle-password" type="button" data-target="id_old_password">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        {{ password_change_form.old_password.errors }}
+                    </div>
+                    
+                    <div class="mb-3">
+                        {{ password_change_form.new_password1.label_tag }}
+                        <div class="input-group">
+                            {{ password_change_form.new_password1|add_class:"form-control" }}
+                            <button class="btn btn-outline-secondary toggle-password" type="button" data-target="id_new_password1">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        {{ password_change_form.new_password1.errors }}
+                    </div>
+                    
+                    <div class="mb-3">
+                        {{ password_change_form.new_password2.label_tag }}
+                        <div class="input-group">
+                            {{ password_change_form.new_password2|add_class:"form-control" }}
+                            <button class="btn btn-outline-secondary toggle-password" type="button" data-target="id_new_password2">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        {{ password_change_form.new_password2.errors }}
+                    </div>
+                    
+                    <button type="submit" class="btn quantum-btn">
+                        <i class="fas fa-sync-alt me-2"></i>Изменить пароль
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.toggle-password').forEach(function(button) {
+        button.addEventListener('click', function() {
+            const targetId = this.getAttribute('data-target');
+            const passwordField = document.querySelector(`#${targetId}`);
+            if (passwordField) {
+                const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordField.setAttribute('type', type);
+                const icon = this.querySelector('i');
+                icon.classList.toggle('fa-eye');
+                icon.classList.toggle('fa-eye-slash');
+            }
+        });
+    });
+});
+</script>
+{% endblock %}
+{% endblock %}

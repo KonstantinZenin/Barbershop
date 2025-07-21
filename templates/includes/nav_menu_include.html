@@ -30,7 +30,9 @@
                 
                 {% if user.is_authenticated %}
                 <li class="nav-item">
-                    <span class="nav-link">Привет, {{ user.username }}!</span>
+                    <a class="nav-link" href="{% url 'users:profile' %}">
+                        <i class="fas fa-user-astronaut me-1"></i>Профиль
+                    </a>
                 </li>
                 <li class="nav-item">
                     <form action="{% url 'users:logout' %}" method="post" class="d-inline">
