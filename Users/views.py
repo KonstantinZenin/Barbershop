@@ -1,12 +1,12 @@
 from django.shortcuts import render
 from django.views.generic import DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.views import LoginView, LogoutView, PasswordChangeView
+from django.contrib.auth.views import LoginView, LogoutView, PasswordChangeView as BasePasswordChangeView
 from django.views.generic.edit import CreateView, UpdateView
 from django.contrib.auth import login
 from django.urls import reverse_lazy
 from django.contrib import messages
-from .forms import UserRegisterForm, UserLoginForm
+from .forms import UserRegisterForm, UserLoginForm, UserProfileUpdateForm, UserPasswordChangeForm, CustomPasswordResetForm, CustomSetPasswordForm
 from django.shortcuts import redirect, render, get_object_or_404
 from .models import User
 from django.contrib.auth.decorators import login_required
@@ -14,7 +14,7 @@ from django.contrib.auth import update_session_auth_hash
 from django.views.generic import TemplateView
 from django.contrib.auth.forms import PasswordChangeForm
 # Импорт служебных вью для сброса и восстановления пароля
-from django.contrib.auth.views import PasswordResetView, PasswordResetConfirmView, PasswordResetDoneView, PasswordResetCompleteView, PasswordChangeView
+from django.contrib.auth.views import PasswordResetView, PasswordResetConfirmView, PasswordResetDoneView, PasswordResetCompleteView
 
 class ProfileView(LoginRequiredMixin, TemplateView):
     """Представление личного кабинета пользователя"""
@@ -22,10 +22,69 @@ class ProfileView(LoginRequiredMixin, TemplateView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # Поскольку представление защищено LoginRequiredMixin, пользователь всегда аутентифицирован
-        # Исправление для Pylance: явное приведение типа
-        context['password_change_form'] = PasswordChangeForm(user=self.request.user)  # type: ignore
+        user = self.request.user
+        context['password_change_form'] = UserPasswordChangeForm(user=user)
+        context['profile_form'] = UserProfileUpdateForm(instance=user)
         return context
+
+
+class UserProfileUpdateView(LoginRequiredMixin, UpdateView):
+    """Представление для редактирования профиля пользователя."""
+    model = User
+    form_class = UserProfileUpdateForm
+    template_name = "users/profile_update_form.html"
+    success_url = reverse_lazy("users:profile")
+    
+    def get_object(self, queryset=None):
+        return self.request.user
+    
+    def form_valid(self, form):
+        messages.success(self.request, "Профиль успешно обновлен!")
+        return super().form_valid(form)
+    
+    def form_invalid(self, form):
+        messages.error(self.request, "Пожалуйста, исправьте ошибки в форме.")
+        return super().form_invalid(form)
+
+
+class UserPasswordChangeView(LoginRequiredMixin, BasePasswordChangeView):
+    """Представление для смены пароля пользователя."""
+    form_class = UserPasswordChangeForm
+    template_name = "users/password_change_form.html"
+    success_url = reverse_lazy("users:profile")
+    
+    def form_valid(self, form):
+        messages.success(self.request, "Пароль успешно изменен!")
+        return super().form_valid(form)
+    
+    def form_invalid(self, form):
+        messages.error(self.request, "Пожалуйста, исправьте ошибки в форме.")
+        return super().form_invalid(form)
+
+
+class CustomPasswordResetView(PasswordResetView):
+    """Кастомное представление для запроса сброса пароля."""
+    form_class = CustomPasswordResetForm
+    template_name = "users/password_reset_form.html"
+    email_template_name = "users/password_reset_email.html"
+    success_url = reverse_lazy("users:password_reset_done")
+
+
+class CustomPasswordResetDoneView(PasswordResetDoneView):
+    """Кастомное представление после отправки запроса на сброс пароля."""
+    template_name = "users/password_reset_done.html"
+
+
+class CustomPasswordResetConfirmView(PasswordResetConfirmView):
+    """Кастомное представление для ввода нового пароля."""
+    form_class = CustomSetPasswordForm
+    template_name = "users/password_reset_confirm.html"
+    success_url = reverse_lazy("users:password_reset_complete")
+
+
+class CustomPasswordResetCompleteView(PasswordResetCompleteView):
+    """Кастомное представление об успешном сбросе пароля."""
+    template_name = "users/password_reset_complete.html"
 
 class UserRegisterView(CreateView):
     """

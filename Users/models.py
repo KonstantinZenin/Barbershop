@@ -42,6 +42,12 @@ class User(AbstractUser):
         null=True, 
         verbose_name='Телефон'
     )
+    github_id = models.CharField(
+        max_length=100, 
+        blank=True, 
+        null=True, 
+        verbose_name='GitHub ID'
+    )
 
     # Указываем, что для логина будет использоваться поле email
     USERNAME_FIELD = 'email'

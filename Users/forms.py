@@ -109,3 +109,59 @@ class UserRegisterForm(UserCreationForm):
         if commit:
             user.save()
         return user
+
+
+class UserProfileUpdateForm(forms.ModelForm):
+    """Форма для обновления профиля пользователя."""
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'avatar', 'birth_date', 'telegram_id', 'github_id']
+        widgets = {
+            'username': forms.TextInput(attrs={'class': 'form-control mb-2', 'placeholder': 'Имя пользователя'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control mb-2', 'placeholder': 'Email'}),
+            'birth_date': forms.DateInput(attrs={'class': 'form-control mb-2', 'type': 'date'}),
+            'telegram_id': forms.TextInput(attrs={'class': 'form-control mb-2', 'placeholder': 'Telegram ID'}),
+            'github_id': forms.TextInput(attrs={'class': 'form-control mb-2', 'placeholder': 'GitHub ID'}),
+        }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['avatar'].widget.attrs.update({'class': 'form-control mb-2'})
+
+
+class UserPasswordChangeForm(PasswordChangeForm):
+    """Кастомная форма для смены пароля."""
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Убираем подсказки
+        self.fields['old_password'].help_text = ''
+        self.fields['new_password1'].help_text = ''
+        self.fields['new_password2'].help_text = ''
+        
+        # Настройка виджетов
+        self.fields['old_password'].widget.attrs.update({'class': 'form-control mb-2', 'placeholder': 'Текущий пароль'})
+        self.fields['new_password1'].widget.attrs.update({'class': 'form-control mb-2', 'placeholder': 'Новый пароль'})
+        self.fields['new_password2'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Подтвердите новый пароль'})
+
+
+class CustomPasswordResetForm(PasswordResetForm):
+    """Кастомная форма для запроса сброса пароля."""
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['email'].widget.attrs.update({
+            'class': 'form-control',
+            'placeholder': 'Введите ваш email'
+        })
+
+
+class CustomSetPasswordForm(SetPasswordForm):
+    """Кастомная форма для установки нового пароля."""
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Убираем подсказки
+        self.fields['new_password1'].help_text = ''
+        self.fields['new_password2'].help_text = ''
+        
+        # Настройка виджетов
+        self.fields['new_password1'].widget.attrs.update({'class': 'form-control mb-2', 'placeholder': 'Новый пароль'})
+        self.fields['new_password2'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Подтвердите новый пароль'})

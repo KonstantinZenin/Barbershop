@@ -46,8 +46,13 @@
             </form>
             <div class="mt-4 text-center tech-fantasy-font">
                 <p class="mb-2">Ещё не в квантовом поле?</p>
-                <a href="{% url 'users:registerUser' %}" class="quantum-link">
+                <a href="{% url 'users:register' %}" class="quantum-link">
                     <i class="fas fa-user-plus me-1"></i>Активировать протокол регистрации
+                </a>
+            </div>
+            <div class="mt-3 text-center">
+                <a href="{% url 'users:password_reset' %}" class="quantum-link">
+                    <i class="fas fa-key me-1"></i>Восстановить пароль
                 </a>
             </div>
         </div>
